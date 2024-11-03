@@ -1,6 +1,8 @@
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
+import { eq } from "drizzle-orm";
 import { type DefaultSession, type NextAuthConfig } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+import EmailProvider from "next-auth/providers/nodemailer"
+import { env } from "~/env";
 
 import { db } from "~/server/db";
 import {
@@ -10,19 +12,11 @@ import {
   verificationTokens,
 } from "~/server/db/schema";
 
-/**
- * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
- * object and keep type safety.
- *
- * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
- */
+
 declare module "next-auth" {
   interface Session extends DefaultSession {
-    user: {
-      id: string;
-      // ...other properties
-      // role: UserRole;
-    } & DefaultSession["user"];
+    user:NonNullable<Awaited<ReturnType<typeof getUser >>> &
+    DefaultSession["user"];
   }
 
   // interface User {
@@ -31,23 +25,51 @@ declare module "next-auth" {
   // }
 }
 
-/**
- * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
- *
- * @see https://next-auth.js.org/configuration/options
- */
+const getUser = async (id:string) =>{
+  return await db.query.users.findFirst({
+    where: eq(users.id, id)
+  })
+}
+
 export const authConfig = {
+  callbacks: {
+    async signIn({user}) {
+      if (user.email === env.ADMIN_EMAIL){
+        return true
+      }
+
+      return false
+    },
+    session: async ({ session, user }) => {
+      const existUser = await getUser(user.id);
+      if( 
+      existUser?.email === env.ADMIN_EMAIL && 
+      (existUser.role.includes("ADMIN") || existUser.role.includes("UNKNOWN"))
+      ){
+        const sets = new Set(existUser.role)
+
+        sets.add("ADMIN")
+        sets.delete("UNKNOWN")
+        await db.update(users).set({
+          role: Array.from(sets),
+        })
+        .where(eq(users.id, user.id))
+      }
+
+      if(!existUser) throw new Error("Пользователь не найден")
+
+      return {
+        ...session,
+        user: existUser
+      }
+    }  
+  },
   providers: [
-    DiscordProvider,
-    /**
-     * ...add more providers here.
-     *
-     * Most other providers require a bit more work than the Discord provider. For example, the
-     * GitHub provider requires you to add the `refresh_token_expires_in` field to the Account
-     * model. Refer to the NextAuth.js docs for the provider you want to use. Example:
-     *
-     * @see https://next-auth.js.org/providers/github
-     */
+    EmailProvider({
+      from: env.EMAIL_FROM,
+      server: env.EMAIL_SERVER,
+      maxAge:10 * 60
+    })
   ],
   adapter: DrizzleAdapter(db, {
     usersTable: users,
@@ -55,13 +77,4 @@ export const authConfig = {
     sessionsTable: sessions,
     verificationTokensTable: verificationTokens,
   }),
-  callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
-  },
 } satisfies NextAuthConfig;
