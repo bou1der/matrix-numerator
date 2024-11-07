@@ -18,7 +18,6 @@ export const createTable = pgTableCreator((name) => `matrix-numerator_${name}`);
 
 export const rolesEnum = pgEnum("role",[
   "ADMIN",
-  "STUDENT",
   "UNKNOWN",
 ])
 

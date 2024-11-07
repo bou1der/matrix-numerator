@@ -6,8 +6,15 @@ export default {
     content: ["./src/**/*.tsx"],
   theme: {
   	extend: {
+      transitionDuration:{
+        "7500": '7500ms'
+      },
   		fontFamily: {
-  			sans: ["var(--font-geist-sans)", ...fontFamily.sans]
+
+  			// sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        merriweather: ["var(--font-merriweather)", ...fontFamily.sans],
+        montserrat: ["var(--font-montserrat)", ...fontFamily.sans]
+
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -84,6 +91,17 @@ export default {
   				}
   			}
   		},
+      screens:{
+        'sm': '640px',
+
+        'md': '768px',
+
+        'lg': '1024px',
+
+        'xl': '1280px',
+
+        '2xl': '1536px',
+      },
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'
