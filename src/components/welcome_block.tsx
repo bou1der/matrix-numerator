@@ -1,10 +1,14 @@
 import Image from "next/image";
-import starLong from "../../../public/long_star.svg"
-import matrix from "../../../public/matrix_animate.svg"
+import starLong from "../../public/long_star.svg"
+import matrix from "../../public/matrix_animate.svg"
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
+import { ReactNode } from "react";
 
-export default function WelcomeBlock(){
+export default function WelcomeBlock({noButton, children}:{
+  noButton?:true,
+  children:ReactNode
+}){
   return (
     <>
       <div className="w-screen overflow-hidden relative h-screen bg-secondary">
@@ -15,15 +19,10 @@ export default function WelcomeBlock(){
             alt=""
           />
           <div className="w-full flex flex-col justify-center items-center gap-6 px-2">
-            <h1 className="text-secondary-foreground text-center max-w-[832px] ">
-              Раскройте тайны с «<b className="italic">Ключом Души</b>» — уникальные расчеты для вашего пути
-            </h1>
-            <p className="text-secondary-foreground max-w-[832px] text-center">
-              Откройте для себя персональную нумерологическую консультацию — ваш путь к самопознанию и гармонии начинается здесь
-            </p>
+            {children}
           </div>
           <div className="w-full px-2 h-10 flex justify-center">
-            <Button className="w-full sm:max-w-[370px] h-full rounded-xl">Записаться на консультацию</Button>
+            {noButton ? undefined : <Button className="w-full sm:max-w-[370px] h-full rounded-xl">Записаться на консультацию</Button>}
           </div>
         </div>
 

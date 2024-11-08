@@ -44,13 +44,13 @@ export function CardService({ children}:
     children:ReactNode
   }){
   return(
-    <div className="h-[360px] w-[300px] bg-white rounded-3xl relative">
       <motion.div
+        className="h-[360px] w-[300px] bg-white rounded-3xl relative"
         initial="rest"
         whileHover="hover"
         animate="rest"
       >
-        <div className="absolute top-0 w-full h-full p-6 flex flex-col justify-between z-[3]">
+        <div className="absolute top-0 w-full h-full p-6 flex flex-col justify-between items-center z-[3]">
           <div className="w-full flex justify-start items-start">
             <Image
               src={StarCard}
@@ -73,7 +73,6 @@ export function CardService({ children}:
         />
 
       </motion.div>
-    </div>
   )
 }
       // <motion.div

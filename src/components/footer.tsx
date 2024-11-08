@@ -10,7 +10,7 @@ export function Footer(){
       <div className="flex flex-col space-y-8 px-2 sm:px-20">
         <Logo size="md"/>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-secondary-foreground ">
-          <Link className="flex gap-2" href={"/"}><Triangle/> Матрица Ладини</Link>
+          <Link className="flex gap-2" href={"/ladyni"}><Triangle/> Матрица Ладини</Link>
           <Link className="flex gap-2" href={"/"}><Grid2x2/> Квадрат Пифагора</Link>
           <Link className="flex gap-2" href={"/"}><Diamond /> Кармическая марица Анаэль</Link>
         </div>

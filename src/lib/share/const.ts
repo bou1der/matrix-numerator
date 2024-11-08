@@ -20,3 +20,18 @@ export function Acumulate(arg: number[], options?:options ){
   return Number(num)
 }
 
+export function IfAcumulate(arg:number){
+  if(arg > 22){
+    return arg
+      .toString()
+      .split("")
+      .map(Number)
+      .reduce((acc, curr) => acc + curr, 0)
+  }
+
+  return arg
+}
+
+export const startYear = 1970;
+export const endYear = new Date().getFullYear()
+
