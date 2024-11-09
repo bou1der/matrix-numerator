@@ -1,5 +1,6 @@
 import WelcomeBlock from "~/components/welcome_block";
 import LadyniMatrix from "./matrix";
+import { Collapsed } from "~/components/collapsible";
 
 export default function LadyniCalculate(){
   return(
@@ -13,6 +14,14 @@ export default function LadyniCalculate(){
         </p>
       </WelcomeBlock>
       <LadyniMatrix />
+      <div className="w-full px-6">
+        <Collapsed title={"хAAAAAAAAAAAAAAAAAAAAA"}>
+          <div>ХУЙХУЙХУХЙУХЙХУХЙУХЙУХЙХУЙХУЙХУХЙУХЙХУЙХУ</div>
+          <div>ХУЙХУЙХУХЙУХЙХУХЙУХЙУХЙХУЙХУЙХУХЙУХЙХУЙХУ</div>
+          <div>ХУЙХУЙХУХЙУХЙХУХЙУХЙУХЙХУЙХУЙХУХЙУХЙХУЙХУ</div>
+          <div>ХУЙХУЙХУХЙУХЙХУХЙУХЙУХЙХУЙХУЙХУХЙУХЙХУЙХУ</div>
+        </Collapsed>
+      </div>
     </>
   )
 }

@@ -11,13 +11,14 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from "~/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { Dates, monthKeys } from "~/lib/share/types/ladyni";
-import { useMemo } from "react";
+import { ReactNode, useMemo } from "react";
 import { endYear, startYear } from "~/lib/share/const";
 import { DateSchema, dateSchema } from "~/lib/share/types";
 
 
-export default function MatrixForm({ OnSubmit }:
+export default function MatrixForm({ OnSubmit, children}:
   {
+    children:ReactNode,
     OnSubmit:(data:DateSchema) => void
   }){
 
@@ -169,7 +170,7 @@ export default function MatrixForm({ OnSubmit }:
           </div>
         </div>
         <div className="blur-sm absolute">
-          <Image src={LadyniMatrixSvg} alt="" className="h-full"/>
+          { children }
         </div>
       </div>
   )

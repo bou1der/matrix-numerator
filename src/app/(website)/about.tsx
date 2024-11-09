@@ -46,7 +46,8 @@ export default function AboutMeBlock(){
               alt=""
               className="object-fill"
             />
-            <div className="w-full h-20 absolute blur-2xl bg-background bottom-0" />
+            <div className="w-full h-full  absolute bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-white/0  to-background/70  bottom-0 z-[2]" />
+            <div className="w-full h-full border-[40px] border-background blur-2xl  absolute   bottom-0 z-[3]" />
           </div>
         </div>
 

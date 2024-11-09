@@ -2,18 +2,22 @@
 
 import { Dispatch, SetStateAction, useState } from "react";
 import MatrixForm from "~/components/matrix_form";
-import { PeopleNumberTable } from "~/components/people_numbers";
+import LadyniMatrixSvg from "public/matrix_ladyni.svg"
+import { PeopleNumberTable } from "./table";
 import { DateSchema } from "~/lib/share/types";
 import { LadyniMatrixNumbers } from "~/lib/share/types/ladyni";
 import Image from "next/image"
 import Star from "public/star.svg"
-import { BaseMatrix } from "~/components/matrix_base";
+import { BaseMatrix } from "./matrix_base";
 import { Acumulate } from "~/lib/share/const";
+import { Switch } from "~/components/ui/switch";
+import { Label } from "~/components/ui/label";
 
 
 
 export default function LadyniMatrix(){
   const [numbers, setNumbers] = useState<LadyniMatrixNumbers | undefined>()
+  const [moneyChannel, setMoneyChannel] = useState(false)
 
   const OnSubmit = (data:DateSchema) =>{
     CalculateLadyniNumbers(data, setNumbers)
@@ -23,7 +27,9 @@ export default function LadyniMatrix(){
   return (
     <>
       <div className="w-screen min-h-screen overflow-hidden gap-12 flex flex-col justify-center items-center py-20 px-10">
-        <MatrixForm  OnSubmit={OnSubmit} />
+        <MatrixForm  OnSubmit={OnSubmit} >
+          <Image src={LadyniMatrixSvg} alt="" className="h-full"/>
+        </MatrixForm>
         <div className="w-full grid grid-cols-1 gap-6 lg:gap-0 lg:grid-rows-1 lg:grid-cols-2 justify-items-center ">
           <div className="flex flex-col gap-4 justify-start items-center">
             <div className="w-full flex justify-start"> 
@@ -42,7 +48,15 @@ export default function LadyniMatrix(){
               />
             </div>
           </div>
-          <BaseMatrix numbers={numbers} />
+          <div className="flex flex-col gap-6 items-center">
+            <div className="flex justify-center items-center gap-6 z-20">
+              <Label htmlFor="switch-channel">Расчет денежного канала</Label>
+              <Switch id="switch-channel" checked={moneyChannel} onCheckedChange={setMoneyChannel} />
+            </div>
+
+            <BaseMatrix numbers={numbers} moneyChannel={moneyChannel} />
+            <p className="order-last">16 - 8 - 1975</p>
+          </div>
         </div>
       </div>
     </>
@@ -83,6 +97,5 @@ function CalculateLadyniNumbers(data:DateSchema, setNumbers:Dispatch<SetStateAct
     }
   }
 
-  console.log(matrixNumbers)
   setNumbers(matrixNumbers)
 }

@@ -9,6 +9,8 @@ export function Acumulate(arg: number[], options?:options ){
     return acum + curr
   })
 
+  if(options?.checkIgnore) return num
+
   while(num > 22){
     num = num
       .toString()

@@ -3,7 +3,6 @@ import { LadyniMatrixNumbers } from "~/lib/share/types/ladyni"
 import MatrixSvg from "public/matrix_ladyni.svg"
 import { cn } from "~/lib/utils"
 import { IfAcumulate } from "~/lib/share/const"
-import { MoneyChannel } from "./CalculateMoney"
 
 
 
@@ -14,11 +13,9 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
   moneyChannel:boolean
   className?:string
 }){
-  moneyChannel = false
-
 
   return(
-    <div className={cn(className, `${ moneyChannel ? "rotate-[135deg]" : ""} relative order-first lg:order-last  min-w-[300px] mix-h-[300px] size-[300px] sm:min-w-[600px] sm:min-h-[600px] sm:size-[600px]`)}>
+    <div style={{"WebkitBackfaceVisibility":"hidden"}}  className={cn(className, `${ moneyChannel ? "rotate-[135deg]" : ""} relative order-first lg:order-last  min-w-[300px] mix-h-[300px] size-[300px] sm:min-w-[600px] sm:min-h-[600px] sm:size-[600px] rounded-xl`)}>
       {/* K */}
       {
         !moneyChannel ? (
@@ -44,7 +41,7 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
       <MNumber moneyChannel={moneyChannel} size="sm" position="top-[45.7%] left-[48.65%]  sm:top-[57.75%] sm:left-[58%]" num={numbers ? numbers.main.x5 : "?"}/>
 
       {/* DD */}
-      <MNumber moneyChannel={moneyChannel} size="md" position="top-[2.5%] left-[90%]  sm:top-[47.3%] sm:left-[92.5%]" num={numbers ? numbers.special.DD : "?"}/>
+      <MNumber moneyChannel={moneyChannel} size="md" position="top-[2.5%] left-[90%]  sm:top-[47.3%] sm:left-[92.6%]" num={numbers ? numbers.special.DD : "?"}/>
       {/* X15 */}
       <MNumber moneyChannel={moneyChannel} size="sm" position="top-[2.5%] left-[48.65%]  sm:top-[47.89%] sm:left-[85.6%]" num={numbers ? IfAcumulate(IfAcumulate(numbers.special.DD + numbers.main.x5) + numbers.special.DD) : "?"}/>
       {/* X14 */}
@@ -86,7 +83,7 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
       <MNumber moneyChannel={moneyChannel} size="sm" position="top-[2.5%] left-[48.65%]  sm:top-[25.4%] sm:left-[70.6%]" num={numbers ? IfAcumulate(numbers.main.x2 + numbers.main.x6) : "?"}/>
 
       {/* X3 */}
-      <MNumber moneyChannel={moneyChannel} size="md" position="top-[2.5%] left-[48.65%]  sm:top-[15.8%] sm:left-[15.8%]"  num={numbers ? numbers.main.x3 : "?"}                                                              />
+      <MNumber moneyChannel={moneyChannel} size="md" position="top-[2.5%] left-[48.65%]  sm:top-[15.5%] sm:left-[15.5%]"  num={numbers ? numbers.main.x3 : "?"}                                                              />
       {/* X17 */}                                                                                                                                                                                
       <MNumber moneyChannel={moneyChannel} size="sm" position="top-[2.5%] left-[48.65%]  sm:top-[21.4%] sm:left-[21.45%]" num={numbers ? IfAcumulate(IfAcumulate(numbers.main.x3 + numbers.main.x6) + numbers.main.x3) : "?"}/>
       {/* X16 */}                                                                                                                                                                                
@@ -99,7 +96,7 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
       {/* X20 */}                                                                                                                                                                                   
       <MNumber moneyChannel={moneyChannel} size="sm" position="top-[2.5%] left-[48.65%]   sm:top-[70.5%]  sm:left-[25.5%]"   num={numbers ? IfAcumulate(numbers.main.x4 + numbers.main.x6) : "?"}/>
 
-      <svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="full" height="full" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M299.999 28.7686L28.7677 300L299.999 571.232L571.231 300L299.999 28.7686Z" stroke="#70548E" strokeWidth="2.34375" strokeLinecap="round" strokeLinejoin="round"/>
         <path d="M108.209 108.21H491.789V491.79H108.209V108.21Z" stroke="#70548E" strokeWidth="2.34375" strokeLinecap="round" strokeLinejoin="round"/>
         <path d="M299.999 571.232V28.7686" stroke="#70548E" strokeWidth="2.34375" strokeLinecap="round" strokeLinejoin="round"/>

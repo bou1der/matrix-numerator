@@ -1,5 +1,5 @@
 import { LadyniMatrixNumbers } from "~/lib/share/types/ladyni";
-import { TableBody, Table, TableRow, TableCell } from "./ui/table";
+import { TableBody, Table, TableRow, TableCell } from "~/components/ui/table";
 import { Separator } from "@radix-ui/react-separator";
 import { cn } from "~/lib/utils";
 
@@ -78,7 +78,7 @@ export function PeopleNumberTable({numbers, className}:
       <TableBody className=" flex flex-col justify-center items-center">
         {
           MainNumbers.map((el) => (
-            <TableRow key={el.text} className=" w-full sm:w-4/5 grid grid-cols-2 place-content-center justify-items-center">
+            <TableRow key={el.text} className=" rounded-md  border w-full sm:w-4/5 grid grid-cols-2 place-content-center justify-items-center">
               <TableCell className="flex justify-start w-full ">
                 {el.text}
               </TableCell>

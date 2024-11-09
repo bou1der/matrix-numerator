@@ -3,6 +3,7 @@
 @tailwind utilities;
 @layer base {
   :root {
+    --matrix-color: 268 36 86;
     --background: 269 100 96;
     --foreground: 276 32 23;
     --card: 0 0% 100%;

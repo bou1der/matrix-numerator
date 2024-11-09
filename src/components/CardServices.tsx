@@ -58,9 +58,9 @@ export function CardService({ children}:
               className="z-[5]"
             />
           </div>
-          <p>
+          <div className="flex flex-col gap-2">
             {children}
-          </p>
+          </div>
         </div>
         <motion.div
           className="absolute top-0 rounded-3xl bg-white/50 w-full h-full z-[2]"
