@@ -11,6 +11,7 @@ services:
     volumes:
       - "postgres:/var/lib/postgresql/data"
   web:
+    command: npm run start
     restart: always
     build: .
 
