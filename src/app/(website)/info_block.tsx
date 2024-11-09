@@ -1,10 +1,10 @@
 'use client'
-import Image from "next/image"
+import Image, {type StaticImageData} from "next/image"
 import Star from "../../../public/star.svg"
 import Anael from "public/matrixs/anael.svg"
 import Ladyni from "public/matrixs/ladyni.svg"
 import Channel from "public/matrixs/money-channel.svg"
-import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "~/components/ui/carousel"
+import { Carousel, type CarouselApi, CarouselContent, CarouselItem } from "~/components/ui/carousel"
 import { useEffect, useState } from "react"
 
 export default function InfoBlock(){
@@ -22,7 +22,7 @@ export default function InfoBlock(){
         <div className="h-full flex flex-col justify-between gap-8 max-w-[632px]">
           <div className="w-full flex justify-start"> 
             <Image
-              src={Star}
+              src={Star as StaticImageData}
               alt=""
               className="size-9"
             />
@@ -51,7 +51,7 @@ export default function InfoBlock(){
            </div>
           <div className="w-full flex justify-end"> 
             <Image
-              src={Star}
+              src={Star as StaticImageData}
               alt=""
               className="size-9"
             />
@@ -62,13 +62,13 @@ export default function InfoBlock(){
           <Carousel setApi={setApi}>
             <CarouselContent>
               <CarouselItem className="w-full flex justify-center">
-                <Image src={Ladyni} alt="" className="object-fill" />
+                <Image src={Ladyni as StaticImageData} alt="" className="object-fill" />
               </CarouselItem>
               <CarouselItem className="w-full flex justify-center">
-                <Image src={Anael} alt="" className="object-fill" />
+                <Image src={Anael as StaticImageData} alt="" className="object-fill" />
               </CarouselItem>
               <CarouselItem className="w-full flex justify-center">
-                <Image src={Channel} alt="" className="object-fill" />
+                <Image src={Channel as StaticImageData} alt="" className="object-fill" />
               </CarouselItem>
             </CarouselContent>
           </Carousel>

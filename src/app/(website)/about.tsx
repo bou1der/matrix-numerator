@@ -1,4 +1,5 @@
-import Image from "next/image"
+import Image, { type StaticImageData} from "next/image"
+
 import PersonImg from "../../../public/person.png"
 import Star from "../../../public/star.svg"
 
@@ -8,7 +9,7 @@ export default function AboutMeBlock(){
         <div className="h-full flex flex-col justify-between gap-8 max-w-[632px]">
           <div className="w-full flex justify-start"> 
             <Image
-              src={Star}
+              src={Star as StaticImageData}
               alt=""
               className="size-9"
             />
@@ -42,7 +43,7 @@ export default function AboutMeBlock(){
         <div className="flex justify-center items-center order-first lg:order-last">
           <div className="relative">
             <Image
-              src={PersonImg}
+              src={PersonImg as StaticImageData}
               alt=""
               className="object-fill"
             />
