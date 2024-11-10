@@ -16,6 +16,26 @@ import { z } from "zod";
 export const createTable = pgTableCreator((name) => `matrix-numerator_${name}`);
 
 
+
+export const requests = createTable("requests", {
+  id: text("id")
+    .notNull()
+    .primaryKey()
+    .$defaultFn(() => createId()),
+  name: varchar("name", {length:255})
+    .notNull(),
+  phone: varchar("number", {length:64})
+    .notNull(),
+  email: varchar("email", {length:255})
+    .notNull(),
+  time: timestamp("time", {
+    mode:"date",
+    withTimezone:true
+  })
+  .notNull()
+  .default(sql`now()`)
+})
+
 export const rolesEnum = pgEnum("role",[
   "ADMIN",
   "UNKNOWN",

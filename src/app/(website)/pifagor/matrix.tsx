@@ -1,13 +1,15 @@
 'use client'
-import Image from "next/image";
-import MatrixForm from "~/components/matrix_form";
+import Image, { type StaticImageData } from "next/image";
 import PifagorSvg  from "public/matrixs/pifagor.svg"
+import RadialStar from "public/radial-star.svg"
+import ComboStar  from "public/combostar.svg"
+
+import MatrixForm from "~/components/matrix_form";
 import { DateSchema } from "~/lib/share/types";
 import { useState } from "react";
 import { PifagorBase } from "./matrix_base";
 import { PifagorNumbers } from "~/lib/share/types/pifagor";
 import { Acumulate } from "~/lib/share/const";
-import { secondsInDay } from "date-fns/constants";
 
 
 export function PifagorMatrix(){
@@ -42,11 +44,15 @@ export function PifagorMatrix(){
     })
   }
   return (
-    <div className="w-screen min-h-screen overflow-hidden gap-12 flex flex-col justify-center items-center py-20 px-10">
+    <div className="w-screen min-h-screen overflow-hidden gap-12 flex flex-col justify-center items-center py-20 px-2 sm:px-10">
       <MatrixForm OnSubmit={OnSubmit}>
-        <Image className=" size-[360px]" src={PifagorSvg} alt="" />
+        <Image className=" size-[360px]" src={PifagorSvg as StaticImageData} alt="" />
       </MatrixForm>
-      <PifagorBase numbers={numbers}/>
+      <div className="w-full flex justify-center sm:justify-between items-end">
+        <Image src={ComboStar as StaticImageData} alt="" className="hidden sm:block" />
+        <PifagorBase numbers={numbers}/>
+        <Image src={RadialStar as StaticImageData} alt="" className="hidden sm:block"/>
+      </div>
     </div>
   )
 }

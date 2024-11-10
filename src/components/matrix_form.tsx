@@ -37,7 +37,7 @@ export default function MatrixForm({ OnSubmit, children}:
 
   return(
       <div className="relative w-full h-full flex my-20 justify-center items-center">
-        <div className="z-[1] flex flex-col w-full space-y-6 px-8 sm:max-w-[50%]">
+        <div className="z-[1] flex flex-col w-full space-y-6 sm:px-8 sm:max-w-[50%]">
           <div className="w-full flex justify-start"> 
             <Image
               src={Star}

@@ -4,13 +4,14 @@ import SmootraySVG from "public/smoothray.svg"
 import Logo from "./logo";
 import { ArrowRight, Diamond, Grid2x2, Triangle } from "lucide-react";
 import { Button } from "./ui/button";
+import { RequestForm } from "./requests_form";
 
 
 
 export function Footer(){
   return (
     <div className="py-10 bg-secondary">
-      <div className="w-full  px-10 py-20">
+      <div className="w-full  px-2 py-16 sm:px-10 sm:py-20">
         <div className="size-full bg-background p-3 sm:p-12 rounded-xl flex gap-28 sm:gap-0  flex-col sm:flex-row justify-between">
           <div className="h-full flex flex-col  gap-2 sm:gap-[76px] justify-between">
             <Image
@@ -21,9 +22,11 @@ export function Footer(){
             <h1 className="max-w-[835px]">Пишите мне свои вопросы и отзывы — я всегда на связи!</h1>
           </div>
           <div className="w-full sm:max-w-32 mt-auto">
-            <Button className="w-full">
-              <ArrowRight />
-            </Button>
+            <RequestForm>
+              <Button className="w-full">
+                <ArrowRight />
+              </Button>
+            </RequestForm>
           </div>
         </div>
       </div>

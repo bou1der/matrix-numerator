@@ -19,15 +19,15 @@ export function Collapsed({ title, children, className}:
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen} className={cn(className, "px-6 py-7 bg-white rounded-xl")}>
-      <CollapsibleTrigger className="flex gap-6 justify-between items-center w-full">
-        <div className="truncate">
-          <p className=" text-[14px] sm:text-xl">{title}</p>
+      <CollapsibleTrigger className="flex justify-between items-center w-full">
+        <div className="truncate w-5/6 pr-5 text-start">
+          <p className=" w-full text-start text-[14px] sm:text-xl">{title}</p>
         </div>
-        <div className="bg-primary size-6 sm:size-9  flex rounded-md  justify-center">
+        <div className="bg-primary min-h-6 min-w-6 size-6 sm:size-9  flex rounded-md  justify-center">
           <Image
             src={Smoothray}
             alt=""
-            className="transition-transform duration-200" 
+            className="transition-transform duration-200 " 
             style={{
               transform: isOpen ? `rotate(90deg)` : "none",
             }}

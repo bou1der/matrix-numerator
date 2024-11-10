@@ -131,3 +131,19 @@ export const protectedProcedure = t.procedure
       },
     });
   });
+
+export const adminProcedure = protectedProcedure.use(({ctx, next}) =>{
+  if(!ctx.session.user.role.includes("ADMIN")){
+    throw new TRPCError({
+      code:"FORBIDDEN",
+      message:"Недостаточно прав для данного действия"
+    })
+  }
+
+  return next({
+    ctx:{
+      ...ctx.session, user:ctx.session.user
+    }
+  })
+
+})

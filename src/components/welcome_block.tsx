@@ -4,6 +4,7 @@ import matrix from "../../public/matrix_animate.svg"
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 import { ReactNode } from "react";
+import { RequestForm } from "./requests_form";
 
 export default function WelcomeBlock({noButton, children}:{
   noButton?:true,
@@ -11,18 +12,23 @@ export default function WelcomeBlock({noButton, children}:{
 }){
   return (
     <>
-      <div className="w-screen overflow-hidden relative h-screen bg-secondary">
+      <div className="w-screen overflow-hidden relative flex justify-center items-center min-h-screen bg-secondary">
 
-        <div className="z-10 w-full h-full relative flex-col flex  items-center justify-center gap-6">
+        <div className="z-10 w-full h-full relative flex-col flex  items-center justify-center py-20 mt-20 gap-6">
           <Image
             src={starLong}
             alt=""
+            className="hidden sm:block"
           />
-          <div className="w-full flex flex-col justify-center items-center gap-6 px-2">
+          <div className="w-full flex flex-col justify-center items-center gap-6 px-2 ">
             {children}
           </div>
           <div className="w-full px-2 h-10 flex justify-center">
-            {noButton ? undefined : <Button className="w-full sm:max-w-[370px] h-full rounded-xl">Записаться на консультацию</Button>}
+            {noButton ? undefined : (
+            <RequestForm>
+              <Button className="w-full sm:max-w-[370px] h-full rounded-xl">Записаться на консультацию</Button>
+            </RequestForm>
+            )}
           </div>
         </div>
 

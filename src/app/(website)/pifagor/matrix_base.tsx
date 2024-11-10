@@ -128,17 +128,17 @@ export function PifagorBase({numbers}:{
 }){
 
   return (
-    <div className="grid grid-cols-4 grid-rows-5 bg-matrix border-primary border-2 rounded-lg">
-      <div className="col-span-3 border-2 border-primary flex flex-col justify-evenly px-6">
-        <p>Ваша дата рождения: {numbers ? `${numbers.birhday[0]} - ${numbers.birhday[1]} - ${numbers.birhday[2]}` : "?? - ?? - ????"}</p>
-        <p>Доп. числа:   {numbers ? `${numbers.extra.join(", ")}` : "?, ?, ?, ?"}</p>
-        <p>Число судьбы:   {numbers ? `${numbers.fate}` : "?"}</p>
+    <div className="grid w-full lg:w-auto grid-cols-4 grid-rows-5 bg-matrix border-primary border-2 rounded-lg">
+      <div className="col-span-3 border-2 border-primary flex flex-col justify-evenly px-6 ">
+        <p className="text-[8px] sm:text-xl">Ваша дата рождения: {numbers ? `${numbers.birhday[0]} - ${numbers.birhday[1]} - ${numbers.birhday[2]}` : "?? - ?? - ????"}</p>
+        <p className="text-[8px] sm:text-xl">Доп. числа:   {numbers ? `${numbers.extra.join(", ")}` : "?, ?, ?, ?"}</p>
+        <p className="text-[8px] sm:text-xl">Число судьбы:   {numbers ? `${numbers.fate}` : "?"}</p>
       </div>
       {
         cells.map((cell) =>(
-          <div className="size-44 border-2 border-primary gap-4 flex flex-col justify-center items-center">
-            <p>{cell.title}</p>
-            <p>{cell.value(numbers)}</p>
+          <div key={cell.title} className="size-full lg:size-44 border-2 border-primary gap-1 sm:gap-4 flex flex-col justify-center items-center">
+            <p className="text-[8px] sm:text-xl">{cell.title}</p>
+            <p className="text-[8px] sm:text-xl">{cell.value(numbers)}</p>
           </div>
         ))
       }
