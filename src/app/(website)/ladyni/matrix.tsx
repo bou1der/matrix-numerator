@@ -6,7 +6,7 @@ import LadyniMatrixSvg from "public/matrix_ladyni.svg"
 import { PeopleNumberTable } from "./table";
 import { DateSchema } from "~/lib/share/types";
 import { LadyniMatrixNumbers } from "~/lib/share/types/ladyni";
-import Image from "next/image"
+import Image, { type StaticImageData } from "next/image"
 import Star from "public/star.svg"
 import { BaseMatrix } from "./matrix_base";
 import { Acumulate } from "~/lib/share/const";
@@ -28,7 +28,7 @@ export default function LadyniMatrix(){
     <>
       <div className="w-screen min-h-screen overflow-hidden gap-12 flex flex-col justify-center items-center py-20 px-10">
         <MatrixForm  OnSubmit={OnSubmit} >
-          <Image src={LadyniMatrixSvg} alt="" className="h-full"/>
+          <Image src={LadyniMatrixSvg as StaticImageData} alt="" className="h-full"/>
         </MatrixForm>
         <div className="w-full grid grid-cols-1 gap-6 lg:gap-0 lg:grid-rows-1 lg:grid-cols-2 justify-items-center ">
           <div className="flex flex-col gap-4 justify-start items-center">

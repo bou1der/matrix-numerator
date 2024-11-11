@@ -1,6 +1,5 @@
 import { LadyniMatrixNumbers } from "~/lib/share/types/ladyni";
 import { TableBody, Table, TableRow, TableCell } from "~/components/ui/table";
-import { Separator } from "@radix-ui/react-separator";
 import { cn } from "~/lib/utils";
 import { IfAcumulate } from "~/lib/share/const";
 

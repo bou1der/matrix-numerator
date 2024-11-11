@@ -1,4 +1,3 @@
-import { number } from "zod"
 import { PifagorNumbers } from "~/lib/share/types/pifagor"
 
 
