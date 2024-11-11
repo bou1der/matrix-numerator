@@ -15,6 +15,7 @@ export const env = createEnv({
     EMAIL_FROM: z.string(),
     DATABASE_URL: z.string().url(),
     ADMIN_EMAIL: z.string().email(),
+    NEXTAUTH_URL: z.string(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
@@ -34,6 +35,7 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     AUTH_SECRET: process.env.AUTH_SECRET,
     ADMIN_EMAIL: process.env.ADMIN_EMAIL,
     EMAIL_FROM: process.env.EMAIL_FROM,
