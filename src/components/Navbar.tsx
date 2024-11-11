@@ -13,7 +13,7 @@ export async function Navbar(){
     <div className="mt-2.5 sm:mt-5 px-2 sm:px-12  w-full h-14 absolute z-20 ">
       <div className="h-full w-full flex flex-row items-center justify-between rounded-3xl bg-white px-4">
         <Link href="/">
-          <Logo size="sm" invert />
+          <Logo invert />
         </Link>
         <div className="flex flex-row gap-8">
           <Link className="hidden lg:flex gap-2" href={"/ladyni"}><Triangle/> Матрица Ладини</Link>
@@ -26,7 +26,7 @@ export async function Navbar(){
           </SheetTrigger>
           <SheetContent className="space-y-6">
             <SheetHeader>
-              <SheetTitle><Logo size="md" invert/></SheetTitle>
+              <SheetTitle><Logo invert/></SheetTitle>
             </SheetHeader>
             <div className="w-full flex flex-col items-center gap-6">
               <Link className="flex gap-2 w-full justify-start items-center " href={"/ladyni"}><Triangle className="size-6"/><p className="w-full text-center text-[12px] sm:text-[16px]"> Матрица Ладини</p></Link>
