@@ -1,4 +1,5 @@
 import { createId } from "@paralleldrive/cuid2";
+import { randomUUID } from "crypto";
 import { relations, sql } from "drizzle-orm";
 import {
   index,
@@ -21,7 +22,7 @@ export const requests = createTable("requests", {
   id: text("id")
     .notNull()
     .primaryKey()
-    .$defaultFn(() => createId()),
+    .$defaultFn(() => randomUUID()),
   name: varchar("name", {length:255})
     .notNull(),
   phone: varchar("number", {length:64})
@@ -51,7 +52,7 @@ export const users = createTable("user", {
   id: varchar("id", { length: 255 })
     .notNull()
     .primaryKey()
-    .$defaultFn(() => createId()),
+    .$defaultFn(() => randomUUID()),
   name: varchar("name", { length: 255 }),
   role: rolesEnum("role").array().notNull().default(["UNKNOWN"]),
   email: varchar("email", { length: 255 }).notNull(),
