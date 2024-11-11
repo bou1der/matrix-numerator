@@ -1,8 +1,7 @@
 'use client'
 
-import Star from "../../public/star.svg"
-import LadyniMatrixSvg from "../../public/matrix_ladyni.svg"
-import Image from "next/image";
+import Star from "public/star.svg"
+import Image, { type StaticImageData } from "next/image";
 import { Form, FormControl, FormDescription, FormField, FormItem } from "~/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { OnError } from "~/lib/formError";
@@ -14,6 +13,9 @@ import { Dates, monthKeys } from "~/lib/share/types/ladyni";
 import { ReactNode, useMemo } from "react";
 import { endYear, startYear } from "~/lib/share/const";
 import { DateSchema, dateSchema } from "~/lib/share/types";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import { cn } from "~/lib/utils";
+import Combobox from "./ui/combobox";
 
 
 export default function MatrixForm({ OnSubmit, children}:
@@ -40,7 +42,7 @@ export default function MatrixForm({ OnSubmit, children}:
         <div className="z-[1] flex flex-col w-full space-y-6 sm:px-8 sm:max-w-[50%]">
           <div className="w-full flex justify-start"> 
             <Image
-              src={Star}
+              src={Star as StaticImageData}
               alt=""
               className="size-9"
             />
@@ -95,25 +97,15 @@ export default function MatrixForm({ OnSubmit, children}:
                   <FormItem className="w-full sm:max-w-56">
                     <FormDescription className="text-center text-primary">Месяц</FormDescription>
                     <FormControl>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" className="hover:bg-primary/10 w-full h-11 border border-primary rounded-xl">
-                            {Dates[currentMonth as monthKeys].month}
-                            <ChevronDown/>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="flex flex-col bg-primary gap-1 rounded-sm py-2 px-2 max-h-48 overflow-scroll">
+                      <SelectControl className="max-w-20" placeholder="Месяц">
                           {
                             Object.keys(Dates).map((date) => (
-                              <DropdownMenuItem key={date} asChild onSelect={() => field.onChange(Number(date))} >
-                                <Button>
-                                  { Dates[date as monthKeys].month }
-                                </Button>
-                              </DropdownMenuItem>
+                              <SelectItem value={`${date}`} key={date} onSelect={() => field.onChange(Number(date))} >
+                                {date}
+                              </SelectItem>
                             ))
                           }
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                      </SelectControl>
                     </FormControl>
                   </FormItem>
                 )}
@@ -126,27 +118,17 @@ export default function MatrixForm({ OnSubmit, children}:
                   <FormItem className="w-full sm:max-w-28">
                     <FormDescription className="text-center text-primary">Год</FormDescription>
                     <FormControl>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" className="hover:bg-primary/10 w-full h-11 border border-primary rounded-xl">
-                            {field.value}
-                            <ChevronDown/>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="flex flex-col bg-primary gap-1 rounded-sm py-2 px-2 max-h-48 overflow-scroll">
+                      <SelectControl placeholder="Год">
                           {
                             [...Array(endYear - startYear + 1)]
                               .map((_, index) => startYear + index)
                               .map((date) => (
-                                <DropdownMenuItem key={date} asChild onSelect={() => field.onChange(date)} >
-                                  <Button className="outline-none">
+                                <SelectItem key={date} value={`${date}`} onSelect={() => field.onChange(date)} >
                                     {date}
-                                  </Button>
-                                </DropdownMenuItem>
+                                </SelectItem>
                             ))
                           }
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                      </SelectControl>
                     </FormControl>
                   </FormItem>
                 )}
@@ -163,7 +145,7 @@ export default function MatrixForm({ OnSubmit, children}:
           </Form>
           <div className="w-full flex justify-end"> 
             <Image
-              src={Star}
+              src={Star as StaticImageData}
               alt=""
               className="size-9"
             />
@@ -174,4 +156,28 @@ export default function MatrixForm({ OnSubmit, children}:
         </div>
       </div>
   )
+}
+
+
+function SelectControl({ className, placeholder, children }:
+  {
+    placeholder:string,
+    children:ReactNode,
+    className?:string
+  }){
+
+
+  return (
+    <Select>
+      <SelectTrigger className="bg-white/0 border-primary rounded-md">
+        <SelectValue placeholder={placeholder} />
+      </SelectTrigger>
+      <SelectContent popover="auto" className={cn(className, "bg-background border-primary border-[3px] min-w-4")}>
+        <SelectGroup className="w-full">
+          {children}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  )
+
 }

@@ -5,8 +5,8 @@ import Star from "../../../public/star.svg"
 
 export default function AboutMeBlock(){
   return(
-    <div className="overflow-hidden min-w-screen flex flex-col  lg:grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1  justify-items-center content-stretch min-h-screen gap-9 md:gap-40 px-2 md:px-10 py-16 md:py-20">
-        <div className="h-full flex flex-col justify-between gap-8 max-w-[632px]">
+    <div className="overflow-hidden min-w-screen flex flex-col  lg:grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1  justify-items-center content-stretch min-h-screen gap-9 md:gap-40">
+        <div className="size-full flex flex-col lg:pl-10 justify-center items-center gap-8 lg:max-w-[632px]">
           <div className="w-full flex justify-start"> 
             <Image
               src={Star as StaticImageData}
@@ -14,7 +14,7 @@ export default function AboutMeBlock(){
               className="size-9"
             />
           </div>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col  gap-6 px-2">
             <h1>
               Обо мне
             </h1>
@@ -40,15 +40,21 @@ export default function AboutMeBlock(){
           </div>
         </div>
 
-        <div className="flex justify-center items-center order-first lg:order-last">
-          <div className="relative">
+        <div className=" size-full order-first lg:order-last">
+          <div className="flex justify-center items-center object-fill relative size-auto">
             <Image
               src={PersonImg as StaticImageData}
               alt=""
-              className="object-fill"
+              className="size-full"
             />
+            <div className="w-full h-52 absolute  top-0 bg-gradient-to-b from-background to-white/0" />
+            <div className="w-52 h-full absolute hidden lg:block  left-0 top-0 bg-gradient-to-r from-background to-white/0" />
+            <div className="w-full h-52 absolute  bottom-0 bg-gradient-to-t from-background to-white/0" />
+
+          {/*
             <div className="w-full h-full  absolute bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-white/0  to-background/70  bottom-0 z-[2]" />
             <div className="w-full h-full border-[40px] border-background blur-2xl  absolute   bottom-0 z-[3]" />
+          */}
           </div>
         </div>
 

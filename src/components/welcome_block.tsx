@@ -1,6 +1,6 @@
-import Image from "next/image";
-import starLong from "../../public/long_star.svg"
-import matrix from "../../public/matrix_animate.svg"
+import Image, { type StaticImageData } from "next/image";
+import starLong from "public/long_star.svg"
+import matrix from "public/matrix_animate.svg"
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 import { ReactNode } from "react";
@@ -16,7 +16,7 @@ export default function WelcomeBlock({noButton, children}:{
 
         <div className="z-10 w-full h-full relative flex-col flex  items-center justify-center py-20 mt-20 gap-6">
           <Image
-            src={starLong}
+            src={starLong as StaticImageData}
             alt=""
             className="hidden sm:block"
           />
@@ -52,7 +52,7 @@ function SpinMatrix({className}:
   }){
   return (
     <Image
-      className={cn(className,"animate-spin duration-7500")}
+      className={cn(className,"animate-spin duration-18000")}
       src={matrix}
       alt=""
     />

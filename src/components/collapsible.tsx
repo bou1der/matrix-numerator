@@ -1,10 +1,10 @@
 'use client'
 
-import { ReactElement, ReactNode, useState } from "react"
+import { ReactNode, useState } from "react"
 import { CollapsibleTrigger,Collapsible, CollapsibleContent } from "./ui/collapsible";
-import Smoothray from "public/smoothray.svg"
+import Smoothray from "public/smoothray_inverted.svg"
 import { cn } from "~/lib/utils";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 
 
 
@@ -25,9 +25,9 @@ export function Collapsed({ title, children, className}:
         </div>
         <div className="bg-primary min-h-6 min-w-6 size-6 sm:size-9  flex rounded-md  justify-center">
           <Image
-            src={Smoothray}
+            src={Smoothray as StaticImageData}
             alt=""
-            className="transition-transform duration-200 " 
+            className="transition-transform duration-200" 
             style={{
               transform: isOpen ? `rotate(90deg)` : "none",
             }}

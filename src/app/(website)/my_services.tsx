@@ -3,6 +3,29 @@ import { Carousel, CarouselContent, CarouselItem } from "~/components/ui/carouse
 
 
 
+const services = [
+  {
+    text:"Матрица вашего ребенка",
+    description:"Позволяет понять сильные и слабые стороны вашего ребенка с раннего возраста, помогая направить его на правильный путь.",
+    price:3000,
+  },
+  {
+    text:"Общая консультация по Матрице",
+    description:"Узнайте глубже о своей личности, сильных и слабых сторонах, чтобы раскрыть потенциал и построить лучшую версию себя.",
+    price:6000,
+  },
+  {
+    text:"Родители и дети",
+    description:"Понимание особенностей вашего ребенка для выстраивания гармоничных отношений и правильного выбора его пути.",
+    price:8000,
+  },
+  {
+    text:"Финансовый термостат",
+    description:"Анализ уровней финансовой энергии, определение блокировок и путей для их преодоления.",
+    price:5000,
+  }
+]
+
 export default function MyServices(){
   return (
     <div className="w-screen min-h-screen py-16 px-2 sm:py-20 sm:px-10 bg-secondary flex gap-16 flex-col justify-around items-center sm:items-start overflow-hidden">
@@ -15,64 +38,24 @@ export default function MyServices(){
           </p>
       </div>
         <Carousel className="w-full">
-          <CarouselContent className="px-4">
-            <CarouselItem className="flex justify-center md:basis-1/2 lg:basis-1/3 xl:basis-1/3 2xl:basis-1/4">
-              <CardService>
-                <b className="text-20">
-                  Матрица вашего ребенка
-                </b>
-                <p className="text-[16px] ">
-                  Позволяет понять сильные и слабые стороны вашего ребенка с раннего возраста, помогая направить его на правильный путь.
-                </p>
-              </CardService>
-            </CarouselItem>
-
-            <CarouselItem className="flex justify-center md:basis-1/2 lg:basis-1/3 xl:basis-1/3 2xl:basis-1/4">
-              <CardService>
-                <b className="text-20">
-                  Общая консультация по Матрице
-                </b>
-                <p className="text-[16px] ">
-                  Узнайте глубже о своей личности,
-                  сильных и слабых сторонах, чтобы раскрыть потенциал
-                  и построить лучшую версию себя.
-                </p>
-              </CardService>
-            </CarouselItem>
-            <CarouselItem className="flex justify-center md:basis-1/2 lg:basis-1/3 xl:basis-1/3 2xl:basis-1/4">
-              <CardService>
-                <b className="text-20">
-                  Родители и дети
-                </b>
-                <p className="text-[16px] ">
-                  Понимание особенностей вашего ребенка для выстраивания гармоничных отношений и правильного выбора его пути.
-                </p>
-              </CardService>
-            </CarouselItem>
-            <CarouselItem className="flex justify-center md:basis-1/2 lg:basis-1/3 xl:basis-1/3 2xl:basis-1/4">
-              <CardService>
-                <b className="text-20">
-                  Финансовый термостат
-                </b>
-                <p className="text-[16px] ">
-                  Анализ уровней финансовой энергии, определение блокировок и путей для их преодоления.
-                </p>
-              </CardService>
-            </CarouselItem>
-            <CarouselItem className="flex justify-center md:basis-1/2 lg:basis-1/3 xl:basis-1/3 2xl:basis-1/4">
-              <CardService>
-                Lorem ipsum dolor sit amet consectetur.
-                Neque ullamcorper quis felis enim justo.
-                Dictumst felis semper tortor volutpat.
-              </CardService>
-            </CarouselItem>
-            <CarouselItem className="flex justify-center md:basis-1/2 lg:basis-1/3 xl:basis-1/3 2xl:basis-1/4">
-              <CardService>
-                Lorem ipsum dolor sit amet consectetur.
-                Neque ullamcorper quis felis enim justo.
-                Dictumst felis semper tortor volutpat.
-              </CardService>
-            </CarouselItem>
+          <CarouselContent className="px-4 py-4">
+          {
+            services.map((el) =>(
+              <CarouselItem key={el.text} className="flex justify-center md:basis-1/2 lg:basis-1/3 2xl:basis-1/4">
+                <CardService>
+                  <b className="text-20">
+                    {el.text}
+                  </b>
+                  <p className="text-[16px] ">
+                    {el.description}
+                  </p>
+                  <p className="text-[16px]">
+                    Стоимость курса:<b> {el.price}</b>
+                  </p>
+                </CardService>
+              </CarouselItem>
+            ))
+          }
           </CarouselContent>
         </Carousel>
     </div>

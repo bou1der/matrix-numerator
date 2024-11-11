@@ -45,7 +45,7 @@ export function CardService({ children}:
   }){
   return(
       <motion.div
-        className="h-[360px] w-[300px] bg-white rounded-3xl relative"
+        className=" h-[360px] w-[300px] md:h-[380px] md:w-[320px] 2xl:h-[420px] 2xl:w-[380px] bg-white rounded-3xl relative"
         initial="rest"
         whileHover="hover"
         animate="rest"
@@ -75,13 +75,3 @@ export function CardService({ children}:
       </motion.div>
   )
 }
-      // <motion.div
-      //   className="rounded-3xl bg-white/70 w-full h-full z-[1]"
-      //   whileHover={{ scale: 1, rotate: -3 }}
-      //   style={{rotate: 3}}
-      // />
-      // <motion.div
-      //   className=" absolute top-0 rounded-3xl bg-white/50 w-full h-full z-[2]"
-      //   whileHover={{ scale: 1, rotate: -6 }}
-      //   style={{rotate: 6}}
-      // />

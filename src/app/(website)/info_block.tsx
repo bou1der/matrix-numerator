@@ -12,14 +12,16 @@ export default function InfoBlock(){
   const [current, setCurrent] = useState(0)
   useEffect(()=>{
     if(!api) return
+
     api.on("select", () =>{
       setCurrent(api.selectedScrollSnap())
     })
+
   }, [api])
 
   return(
     <div className="overflow-hidden min-w-screen flex flex-col  lg:grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1  justify-items-center content-stretch min-h-screen gap-9 md:gap-40 px-2 md:px-10 py-16 md:py-20">
-        <div className="h-full flex flex-col justify-between gap-8 max-w-[632px]">
+        <div className="h-full flex flex-col justify-center gap-8 max-w-[632px]">
           <div className="w-full flex justify-start"> 
             <Image
               src={Star as StaticImageData}
@@ -73,9 +75,9 @@ export default function InfoBlock(){
             </CarouselContent>
           </Carousel>
           <div className="flex items-center gap-4">
-            <div className={`${current === 0 ? "border-primary/100" : ""} border-2 border-primary/0 transition-colors duration-200 bg-[#DACEE8] size-3 rounded-md before:size-3 before:bg-black`}/>
-            <div className={`${current === 1 ? "border-primary/100" : ""} border-2 border-primary/0 transition-colors duration-200 bg-[#DACEE8] size-3 rounded-md before:size-3 before:bg-black`}/>
-            <div className={`${current === 2 ? "border-primary/100" : ""} border-2 border-primary/0 transition-colors duration-200 bg-[#DACEE8] size-3 rounded-md before:size-3 before:bg-black`}/>
+            <div onClick={() => api?.scrollTo(0)} className={`${current === 0 ? "border-primary/100" : ""} cursor-pointer border-2 border-primary/0 transition-colors duration-200 bg-[#DACEE8] size-3 rounded-md before:size-3 before:bg-black`}/>
+            <div onClick={() => api?.scrollTo(1)} className={`${current === 1 ? "border-primary/100" : ""} cursor-pointer border-2 border-primary/0 transition-colors duration-200 bg-[#DACEE8] size-3 rounded-md before:size-3 before:bg-black`}/>
+            <div onClick={() => api?.scrollTo(2)} className={`${current === 2 ? "border-primary/100" : ""} cursor-pointer border-2 border-primary/0 transition-colors duration-200 bg-[#DACEE8] size-3 rounded-md before:size-3 before:bg-black`}/>
           </div>
         </div>
 

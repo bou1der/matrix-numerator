@@ -7,7 +7,7 @@ export default {
   theme: {
   	extend: {
       transitionDuration:{
-        "7500": '7500ms'
+        "18000": '18000ms'
       },
   		fontFamily: {
 
