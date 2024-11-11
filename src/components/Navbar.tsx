@@ -14,7 +14,7 @@ export function Navbar(){
         <div className="flex flex-row gap-8">
           <Link className="hidden lg:flex gap-2" href={"/ladyni"}><Triangle/> Матрица Ладини</Link>
           <Link className="hidden lg:flex gap-2" href={"/pifagor"}><Grid2x2/> Квадрат Пифагора</Link>
-          <Link className="hidden lg:flex gap-2" href={"/"}><Diamond /> Кармическая марица Анаэль</Link>
+          <Link className="hidden lg:flex gap-2" href={"/anael"}><Diamond /> Кармическая марица Анаэль</Link>
         </div>
         <AlignRight />
       </div>

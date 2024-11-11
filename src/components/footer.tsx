@@ -35,7 +35,7 @@ export function Footer(){
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 text-secondary-foreground ">
           <Link className="flex gap-2" href={"/ladyni"}><Triangle/> Матрица Ладини</Link>
           <Link className="flex gap-2" href={"/pifagor"}><Grid2x2/> Квадрат Пифагора</Link>
-          <Link className="flex gap-2" href={"/"}><Diamond /> Кармическая марица Анаэль</Link>
+          <Link className="flex gap-2" href={"/anael"}><Diamond /> Кармическая марица Анаэль</Link>
         </div>
         <div className="border-t-2 border-white w-full h-0.5" />
         <p className="text-center text-[16px] text-secondary-foreground opacity-60">2024 Все права защищены</p>
