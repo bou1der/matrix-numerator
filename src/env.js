@@ -15,8 +15,8 @@ export const env = createEnv({
     EMAIL_FROM: z.string(),
     DATABASE_URL: z.string().url(),
     ADMIN_EMAIL: z.string().email(),
-    NEXTAUTH_URL: z.string(),
-    NEXTAUTH_URL_INTERNAL:z.string(),
+    NEXTAUTH_URL: z.string().optional(),
+    NEXTAUTH_URL_INTERNAL: z.string().optional(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),

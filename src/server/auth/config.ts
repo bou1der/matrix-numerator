@@ -34,14 +34,9 @@ const getUser = async (id:string) =>{
 export const authConfig = {
   trustHost:true,
   callbacks: {
-    redirect:({baseUrl, url}) =>{
-
-      console.log(url)
-      console.log(baseUrl)
-      return baseUrl
-    },
     async signIn({user}) {
       if (user.email === env.ADMIN_EMAIL){
+
         return true
       }
 
