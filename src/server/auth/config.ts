@@ -42,6 +42,12 @@ export const authConfig = {
 
       return false
     },
+    redirect: ({url,baseUrl}) =>{
+      console.log(url)
+      console.log(baseUrl)
+
+      return baseUrl
+    },
     session: async ({ session, user }) => {
       const existUser = await getUser(user.id);
       if( 
