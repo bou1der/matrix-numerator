@@ -20,10 +20,6 @@ export function PifagorMatrix(){
     const arr = `${data.date}${data.month}${data.year}`.split("").map(Number)
     const first = Acumulate(arr, {checkIgnore:true})
     const second = Acumulate(first.toString().split("").map(Number), {checkIgnore:true})
-
-    console.log(first)
-    console.log(Number(first.toString().split("")[0]))
-
     const third = first - Number(first.toString().split("")[0])
 
     const four = Acumulate(third.toString().split("").map(Number), {checkIgnore:true})

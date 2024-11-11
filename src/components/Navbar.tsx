@@ -29,11 +29,11 @@ export async function Navbar(){
               <SheetTitle><Logo size="md" invert/></SheetTitle>
             </SheetHeader>
             <div className="w-full flex flex-col items-center gap-6">
-              <Link className="flex gap-2" href={"/ladyni"}><Triangle/> Матрица Ладини</Link>
-              <Link className="flex gap-2" href={"/pifagor"}><Grid2x2/> Квадрат Пифагора</Link>
-              <Link className="flex gap-2" href={"/anael"}><Diamond /> Кармическая марица Анаэль</Link>
-              {
-                session?.user.role.includes("ADMIN") ? <Link className="flex gap-2" href={"/admin"}><Shield />Админ панель</Link> : undefined
+              <Link className="flex gap-2 w-full justify-start items-center " href={"/ladyni"}><Triangle className="size-6"/><p className="w-full text-center text-[12px] sm:text-[16px]"> Матрица Ладини</p></Link>
+              <Link className="flex gap-2 w-full justify-start items-center " href={"/pifagor"}><Grid2x2 className="size-6"/><p className="w-full text-center text-[12px] sm:text-[16px]"> Квадрат Пифагора</p></Link>
+              <Link className="flex gap-2 w-full justify-start items-center " href={"/anael"}><Diamond  className="size-6"/><p className="w-full text-center text-[12px] sm:text-[16px]">Кармическая марица Анаэль</p></Link>
+              {                                 
+                session?.user.role.includes("ADMIN") ? <Link className="flex gap-2 w-full items-center" href={"/admin"}><Shield className="size-6" /><p className="w-full text-center text-[12px] sm:text-[16px]">Админ панель</p></Link> : undefined
               }
             </div>
           </SheetContent>

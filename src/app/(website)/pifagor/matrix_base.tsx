@@ -91,8 +91,6 @@ const cells = [
   {
     title:"Привычки",
     value:(numbers:PifagorNumbers | undefined) =>{
-      console.log(numbers?.all.filter((v) => v === 3 || v === 6 || v === 9))
-
       return checkSide(numbers?.all.filter((v) => v === 3 || v === 6 || v === 9).length) 
     }
   },
