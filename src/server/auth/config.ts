@@ -32,6 +32,7 @@ const getUser = async (id:string) =>{
 }
 
 export const authConfig = {
+  trustHost:true,
   callbacks: {
     async signIn({user}) {
       if (user.email === env.ADMIN_EMAIL){
