@@ -42,10 +42,7 @@ export const authConfig = {
 
       return false
     },
-    redirect: ({url,baseUrl}) =>{
-      console.log(url)
-      console.log(baseUrl)
-
+    redirect: ({baseUrl}) =>{
       return baseUrl
     },
     session: async ({ session, user }) => {
@@ -85,4 +82,5 @@ export const authConfig = {
     sessionsTable: sessions,
     verificationTokensTable: verificationTokens,
   }),
+  secret: env.AUTH_SECRET,
 } satisfies NextAuthConfig;

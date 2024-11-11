@@ -6,6 +6,14 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const config = {
+  images:{
+    remotePatterns:[
+      {
+        protocol:"http",
+        hostname:"192.168.0.5",
+      }
+    ]
+  },
   eslint:{
     ignoreDuringBuilds:true
   }
