@@ -1,6 +1,6 @@
 "use client";
 
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { cn } from "~/lib/utils";
 import {
@@ -23,54 +23,30 @@ export default function Combobox<T extends Item>({
   value,
   onChange,
   children,
-  includeAll = false,
-  placeholder,
+  contentClassName,
+  className
 }: {
   values: T[];
-  value: T | null;
+  value: T | undefined
   onChange: (value: T | null) => void;
-  placeholder: {
-    default: string;
-    empty: string;
-  };
-  includeAll?: boolean;
   children: ReactNode;
+  className?:string;
+  contentClassName?:string;
 }) {
   const [open, setOpen] = useState(false);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>{children}</PopoverTrigger>
-      <PopoverContent>
-        <Command>
-          <CommandInput placeholder={placeholder.default} />
-          <CommandEmpty className="text-muted-foreground">
-            {placeholder.empty}
-          </CommandEmpty>
-
-          <CommandList>
+      <PopoverTrigger asChild className={cn(className, "hover:bg-white/0 text-primary border border-primary bg-white/0 w-full")}>{children}</PopoverTrigger>
+      <PopoverContent className={`${contentClassName || "w-24"} p-0 bg-background`}>
+        <Command className="w-full">
+          <CommandList className="bg-background py-2">
             <CommandGroup>
-              {includeAll && (
-                <CommandItem
-                  value={undefined}
-                  onSelect={() => {
-                    onChange(null);
-                    setOpen(false);
-                  }}
-                >
-                  <Check
-                    className={cn(
-                      "size-4 mr-2",
-                      !value ? "opacity-50" : "opacity-0"
-                    )}
-                  />
-                  Все
-                </CommandItem>
-              )}
               {values.map((v) => (
                 <CommandItem
                   value={v.name}
                   key={v.id}
+                  className="data-[selected='true']:bg-primary  data-[selected=true]:text-primary-foreground"
                   onSelect={() => {
                     onChange(v);
                     setOpen(false);

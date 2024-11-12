@@ -74,12 +74,30 @@
   }
 }
 @layer base {
+  ul {
+    @apply list-disc pl-4;
+  }
+
+  ol {
+    @apply list-decimal pl-4;
+  }
+  .tiptap {
+
+    p {
+      @apply pt-2;
+    }
+
+
+    @apply focus-visible:outline-none focus-visible:outline-transparent;
+  }
+
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
   }
+
 
   h1 {
     @apply font-merriweather text-2xl font-bold sm:text-5xl;

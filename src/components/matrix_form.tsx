@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { Button } from "~/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import { Dates, monthKeys } from "~/lib/share/types/ladyni";
+import { Dates, MonthEnum, monthKeys } from "~/lib/share/types/ladyni";
 import { ReactNode, useMemo } from "react";
 import { endYear, startYear } from "~/lib/share/const";
 import { DateSchema, dateSchema } from "~/lib/share/types";
@@ -17,6 +17,16 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import { cn } from "~/lib/utils";
 import Combobox from "./ui/combobox";
 
+
+
+const years =  [...Array(endYear - startYear + 1)]
+ .map((_, index) => startYear + index)
+ .map((date) => ({id:date.toString(), name:date.toString()}))
+
+const months = Object.keys(Dates).map((date) => ({
+  id:date,
+  name:Dates[date as monthKeys].month
+}))
 
 export default function MatrixForm({ OnSubmit, children}:
   {
@@ -33,9 +43,22 @@ export default function MatrixForm({ OnSubmit, children}:
     }
   })
 
-  const currentMonth = useMemo(
-    () => String(form.watch("month"))
+
+  const selectedDay = useMemo(
+    () => months.find((m) => m.id === String(form.watch("date")))
+      ,[form.watch("date")])
+  const selectedMonth = useMemo(
+    () => months.find((m) => m.id === String(form.watch("month")))
       ,[form.watch("month")])
+
+  const selectedYear = useMemo(
+    () => years.find((y) => y.id === String(form.watch("year")))
+    , [form.watch("year")])
+
+  const days = Array.from({length: Dates[selectedMonth?.id as monthKeys].days})
+  .map((_,index) => index + 1)
+  .map((day) => ({id:String(day), name:String(day)}))
+
 
   return(
       <div className="relative w-full h-full flex my-20 justify-center items-center">
@@ -66,25 +89,14 @@ export default function MatrixForm({ OnSubmit, children}:
                   <FormItem className="w-full sm:max-w-24">
                     <FormDescription className="text-center text-primary">Число</FormDescription>
                     <FormControl>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" className="hover:bg-primary/10 w-full h-11 border border-primary rounded-xl">
-                            {field.value}
-                            <ChevronDown/>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="flex flex-col bg-primary  gap-1 px-2 rounded-sm py-2 max-h-48 overflow-scroll">
-                          {
-                            Array.from({length:Dates[currentMonth as monthKeys].days}).map((_, index) => (
-                              <DropdownMenuItem key={index * 2} asChild onSelect={() => field.onChange(Number(index + 1))} >
-                                <Button>
-                                  {index + 1}
-                                </Button>
-                              </DropdownMenuItem>
-                            ))
-                          }
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                      <Combobox 
+                        values={days}
+                        value={selectedDay}
+                        onChange={(v) => field.onChange(Number(v?.id))}
+                        contentClassName="w-18"
+                      >
+                        <Button className="flex justify-between">{field.value} <ChevronDown /></Button>
+                      </Combobox>
                     </FormControl>
                   </FormItem>
                 )}
@@ -97,15 +109,14 @@ export default function MatrixForm({ OnSubmit, children}:
                   <FormItem className="w-full sm:max-w-56">
                     <FormDescription className="text-center text-primary">Месяц</FormDescription>
                     <FormControl>
-                      <SelectControl className="max-w-20" placeholder="Месяц">
-                          {
-                            Object.keys(Dates).map((date) => (
-                              <SelectItem value={`${date}`} key={date} onSelect={() => field.onChange(Number(date))} >
-                                {date}
-                              </SelectItem>
-                            ))
-                          }
-                      </SelectControl>
+
+                      <Combobox
+                        values={months}
+                        value={selectedMonth} onChange={(v) => field.onChange(Number(v?.id))}
+                        contentClassName="w-40" >
+
+                        <Button className="flex justify-between">{Dates[String(field.value) as monthKeys].month} <ChevronDown /></Button>
+                      </Combobox>
                     </FormControl>
                   </FormItem>
                 )}
@@ -118,17 +129,14 @@ export default function MatrixForm({ OnSubmit, children}:
                   <FormItem className="w-full sm:max-w-28">
                     <FormDescription className="text-center text-primary">Год</FormDescription>
                     <FormControl>
-                      <SelectControl placeholder="Год">
-                          {
-                            [...Array(endYear - startYear + 1)]
-                              .map((_, index) => startYear + index)
-                              .map((date) => (
-                                <SelectItem key={date} value={`${date}`} onSelect={() => field.onChange(date)} >
-                                    {date}
-                                </SelectItem>
-                            ))
-                          }
-                      </SelectControl>
+                      <Combobox 
+                        values={years}
+                        value={selectedYear}
+                        onChange={(v) => field.onChange(Number(v?.id))}
+                        className="sm:max-w-32"
+                      >
+                        <Button className="flex justify-between">{field.value} <ChevronDown /></Button>
+                      </Combobox>
                     </FormControl>
                   </FormItem>
                 )}

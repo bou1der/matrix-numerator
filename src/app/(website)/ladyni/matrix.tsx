@@ -9,7 +9,7 @@ import { LadyniMatrixNumbers } from "~/lib/share/types/ladyni";
 import Image, { type StaticImageData } from "next/image"
 import Star from "public/star.svg"
 import { BaseMatrix } from "./matrix_base";
-import { Acumulate } from "~/lib/share/const";
+import { Acumulate, IfAcumulate } from "~/lib/share/const";
 import { Switch } from "~/components/ui/switch";
 import { Label } from "~/components/ui/label";
 
@@ -94,6 +94,23 @@ function CalculateLadyniNumbers(data:DateSchema, setNumbers:Dispatch<SetStateAct
       x4,
       x5,
       x6,
+      x7:IfAcumulate(x6 + x5),
+      x8:IfAcumulate(IfAcumulate(x + x5) + x),
+      x9:IfAcumulate(x + x5),
+      x10:IfAcumulate(MM + x5),
+      x11:IfAcumulate(IfAcumulate(MM + x5) + MM),
+      x12:IfAcumulate(YY + x5),
+      x13:IfAcumulate(IfAcumulate(YY + x5) + YY),
+      x14:IfAcumulate(DD + x5),
+      x15:IfAcumulate(IfAcumulate(DD + x5) + DD),
+      x16:IfAcumulate(x3 + x6),
+      x17:IfAcumulate(IfAcumulate(x3 + x6) + x3),
+      x18:IfAcumulate(x2 + x6),
+      x19:IfAcumulate(IfAcumulate(x2 + x6) + x2),
+      x20:IfAcumulate(x4 + x6),
+      x21:IfAcumulate(IfAcumulate(x4 + x6) + x4),
+      x22:IfAcumulate(x1 + x6),
+      x23:IfAcumulate(IfAcumulate(x1 + x6) + x1),
     }
   }
 

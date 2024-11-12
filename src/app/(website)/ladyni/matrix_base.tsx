@@ -32,15 +32,15 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
                 <path d="M391 301.291C391 310.574 398.525 318.099 407.808 318.099C417.091 318.099 424.617 310.574 424.617 301.291C424.617 292.008 417.091 284.483 407.808 284.483C398.525 284.483 391 292.008 391 301.291Z" fill="#DACEE8" stroke="#70548E" strokeWidth="2"/>
                 <path d="M283.19 191.377C283.19 200.66 290.715 208.185 299.998 208.185C309.281 208.185 316.807 200.66 316.807 191.377C316.807 182.094 309.281 174.569 299.998 174.569C290.715 174.569 283.19 182.094 283.19 191.377Z" fill="#DACEE8" stroke="#70548E" strokeWidth="2"/>
                   <g filter="url(#filter0_d_386_2657)">
-                  <path d="M299.863 496.581L204.86 397.936" stroke="#70548E" strokeWidth="2.39959" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M299.863 496.581L204.86 397.936" stroke="#70548E" strokeWidth="2.39959" strokeLinecap="round" strokeLinejoin="round"/>
                   <g filter="url(#filter1_d_386_2657)">
-                  <path d="M203.529 398.613L108.512 300.627" stroke="white" strokeWidth="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M203.529 398.613L108.512 300.627" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
                   <g filter="url(#filter2_d_386_2657)">
-                  <path d="M108.647 383.486L109.004 300.843" stroke="white" strokeWidth="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M108.647 383.486L109.004 300.843" stroke="white" strokeWidth="3.8" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
                   <g filter="url(#filter3_d_386_2657)">
-                  <path d="M109.24 383.58L204.048 398.75" stroke="white" strokeWidth="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M109.24 383.58L204.048 398.75" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
                   </g>
                   <path d="M187.5 398.274C187.5 407.557 195.025 415.083 204.308 415.083C213.592 415.083 221.117 407.557 221.117 398.274C221.117 388.991 213.592 381.466 204.308 381.466C195.025 381.466 187.5 388.991 187.5 398.274Z" fill="#DACEE8" stroke="#70548E" strokeWidth="2"/>
@@ -111,21 +111,21 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
               <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x5 : "?"} x={360} y={359} />
 
               {/* X19 */}
-              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(IfAcumulate(numbers.main.x2 + numbers.main.x6) + numbers.main.x2) : "?"} x={460} y={140} />
+              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x19  : "?"} x={460} y={140} />
               {/* X18 */}
-              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(numbers.main.x2 + numbers.main.x6) : "?"} x={435} y={165} />
+              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x18  : "?"} x={435} y={165} />
               {/* X17 */}
-              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(IfAcumulate(numbers.main.x3 + numbers.main.x6) + numbers.main.x3) : "?"} x={140} y={140} />
+              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x17  : "?"} x={140} y={140} />
               {/* X16 */}
-              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(numbers.main.x3 + numbers.main.x6) : "?"} x={165} y={165} />
+              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x16 : "?"} x={165} y={165} />
               {/* X23 */}
-              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(IfAcumulate(numbers.main.x1 + numbers.main.x6) + numbers.main.x1) : "?"} x={460} y={460} />
+              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x23  : "?"} x={460} y={460} />
               {/* X22 */}
-              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(numbers.main.x1 + numbers.main.x6) : "?"} x={435} y={435} />
+              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x22 : "?"} x={435} y={435} />
               {/* X21 */}
-              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(IfAcumulate(numbers.main.x4 + numbers.main.x6) + numbers.main.x4) : "?"} x={140} y={460} />
+              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x21  : "?"} x={140} y={460} />
               {/* X20 */}
-              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(numbers.main.x4 + numbers.main.x6) : "?"} x={165} y={435} />
+              <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ?  numbers.main.x20 : "?"} x={165} y={435} />
 
               <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(numbers.special.MM + numbers.main.x2) : "?"} x={380} y={108} />
 
@@ -144,7 +144,7 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
         }
 
         {/* X7 */}
-        <SVGNumber moneyChannel={moneyChannel} size="lg" num={numbers ? IfAcumulate(numbers.main.x6 + numbers.main.x5) : "?"} x={300} y={300} />
+        <SVGNumber moneyChannel={moneyChannel} size="lg" num={numbers ? numbers.main.x7 : "?"} x={300} y={300} />
 
 
         {/* DD */}
@@ -172,21 +172,21 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
         <SVGNumber moneyChannel={moneyChannel} size="md" num={numbers ? numbers.main.x4 : "?"} x={108} y={492} />
 
         {/* X15 */}
-        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(IfAcumulate(numbers.special.DD + numbers.main.x5) + numbers.special.DD) : "?"} x={526} y={300} />
+        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x15 : "?"} x={526} y={300} />
         {/* X14 */}
-        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(numbers.special.DD + numbers.main.x5) : "?"} x={492} y={300} />
+        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x14  : "?"} x={492} y={300} />
         {/* X13 */}
-        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(IfAcumulate(numbers.special.YY + numbers.main.x5) + numbers.special.YY) : "?"} x={75} y={300} />
+        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x13  : "?"} x={75} y={300} />
         {/* X12 */}
-        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(numbers.special.YY + numbers.main.x5) : "?"} x={108} y={300} />
+        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x12  : "?"} x={108} y={300} />
         {/* X8 */}
-        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(IfAcumulate(numbers.special.x + numbers.main.x5) + numbers.special.x) : "?"} x={300} y={525} />
+        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x8 : "?"} x={300} y={525} />
         {/* X9 */}
-        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(numbers.special.x + numbers.main.x5) : "?"} x={300} y={492} />
+        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x9 : "?"} x={300} y={492} />
         {/* X11 */}
-        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(IfAcumulate(numbers.special.MM + numbers.main.x5) + numbers.special.MM) : "?"} x={300} y={75} />
+        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x11 : "?"} x={300} y={75} />
         {/* X10 */}
-        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(numbers.special.MM + numbers.main.x5) : "?"} x={300} y={108} />
+        <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? numbers.main.x10 : "?"} x={300} y={108} />
 
 
       </svg>

@@ -2,6 +2,7 @@ import WelcomeBlock from "~/components/welcome_block";
 import AboutMeBlock from "./about";
 import InfoBlock from "./info_block";
 import MyServices from "./my_services";
+import { EducationBlock } from "./education";
 
 
 export default function Home(){
@@ -17,6 +18,7 @@ export default function Home(){
       </WelcomeBlock>
       <InfoBlock />
       <MyServices/>
+      <EducationBlock />
       <AboutMeBlock />
     </>
   )
