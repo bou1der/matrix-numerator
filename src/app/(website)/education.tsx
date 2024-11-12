@@ -19,8 +19,8 @@ export function EducationBlock(){
         <Editor disabled options={{limit:{length:800, expand:false}}}  text={text}/>
         <Dialog>
           <DialogTrigger asChild className="size-full">
-            {/* TODO Resolve window is not defined */}
-            <Button className="w-full">{window.innerWidth < 460 ? "Смотреть все" : "Смотреть всю информацию" } <ArrowDownRight /> </Button>
+            {/* TODO Resolve window is not defined window.innerWidth < 460 ? : "Смотреть всю информацию"*/}
+            <Button className="w-full">{ "Смотреть все"} <ArrowDownRight /> </Button>
           </DialogTrigger>
           <DialogContent className={`max-w-7xl w-[96%] h-[95%]`}>
             <DialogTitle className="hidden">""</DialogTitle>
