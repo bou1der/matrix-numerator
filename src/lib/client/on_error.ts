@@ -1,5 +1,4 @@
-
-import { FieldError, FieldErrors } from "react-hook-form";
+import type { FieldError, FieldErrors } from "react-hook-form";
 import { toast } from "sonner";
 
 function GetErrorMessage(error: FieldError | undefined) {
@@ -15,14 +14,10 @@ function GetErrorMessage(error: FieldError | undefined) {
   return GetErrorMessage(arrayError[Object.keys(arrayError)[0] ?? "invalid"]);
 }
 
-
 export function OnError(errors: FieldErrors) {
-  console.log(errors);
   const err = GetErrorMessage(
     errors[Object.keys(errors)[0] ?? "invalid"] as FieldError,
   );
   if (!err) return;
-  toast.error("Произошла ошибка", {
-    description: err,
-  });
+  toast.error(err);
 }

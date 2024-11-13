@@ -2,7 +2,6 @@
 import { ReactNode, useState } from "react";
 import { DialogTrigger, Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "./ui/dialog";
 import { Button } from "./ui/button";
-import { api } from "~/trpc/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RequestsSchema } from "~/lib/share/types/requests";
@@ -10,8 +9,9 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem } from "./ui/form";
-import { OnError } from "~/lib/formError";
 import { Input } from "./ui/input";
+import { api } from "~/trpc/main/react";
+import { OnError } from "~/lib/client/on_error";
 
 
 export function RequestForm({children}:{

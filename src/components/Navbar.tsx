@@ -2,12 +2,12 @@ import { AlignRight, Diamond, Grid2x2, Shield, Triangle } from "lucide-react";
 import Logo from "./logo";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
-import { auth } from "~/server/auth";
+import { getServerSession } from "next-auth";
 
 
 
 export async function Navbar(){
-  const session = await auth()
+  const session = await getServerSession()
 
   return (
     <div className="mt-2.5 sm:mt-5 px-2 sm:px-12  w-full h-14 absolute z-20 ">
@@ -33,7 +33,7 @@ export async function Navbar(){
               <Link className="flex gap-2 w-full justify-start items-center " href={"/pifagor"}><Grid2x2 className="size-6"/><p className="w-full text-center text-[12px] sm:text-[16px]"> Квадрат Пифагора</p></Link>
               <Link className="flex gap-2 w-full justify-start items-center " href={"/anael"}><Diamond  className="size-6"/><p className="w-full text-center text-[12px] sm:text-[16px]">Кармическая марица Анаэль</p></Link>
               {                                 
-                session?.user.role.includes("ADMIN") ? <Link className="flex gap-2 w-full items-center" href={"/admin"}><Shield className="size-6" /><p className="w-full text-center text-[12px] sm:text-[16px]">Админ панель</p></Link> : undefined
+                session ? <Link className="flex gap-2 w-full items-center" href={"/admin"}><Shield className="size-6" /><p className="w-full text-center text-[12px] sm:text-[16px]">Админ панель</p></Link> : undefined
               }
             </div>
           </SheetContent>

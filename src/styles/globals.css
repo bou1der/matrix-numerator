@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
     --matrix-color: 268 36 86;
@@ -82,11 +83,9 @@
     @apply list-decimal pl-4;
   }
   .tiptap {
-
     p {
       @apply pt-2;
     }
-
 
     @apply focus-visible:outline-none focus-visible:outline-transparent;
   }
@@ -97,7 +96,6 @@
   body {
     @apply bg-background text-foreground;
   }
-
 
   h1 {
     @apply font-merriweather text-2xl font-bold sm:text-5xl;

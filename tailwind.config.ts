@@ -11,7 +11,6 @@ export default {
       },
   		fontFamily: {
 
-  			// sans: ["var(--font-geist-sans)", ...fontFamily.sans],
         merriweather: ["var(--font-merriweather)", ...fontFamily.sans],
         montserrat: ["var(--font-montserrat)", ...fontFamily.sans]
 

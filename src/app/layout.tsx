@@ -14,9 +14,8 @@ const AddFont = Merriweather({
   variable:"--font-merriweather"
 })
 
-import { TRPCReactProvider } from "~/trpc/react";
 import { Toaster } from "~/components/ui/sonner";
-import { SessionProvider } from "next-auth/react";
+import TRPCReactProvider from "~/trpc/trpc_react_provider";
 
 export const metadata: Metadata = {
   title: "Create T3 App",

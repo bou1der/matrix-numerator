@@ -1,6 +1,6 @@
 import { RequestsSchema } from "~/lib/share/types/requests";
-import { adminProcedure, createTRPCRouter, publicProcedure } from "../trpc";
 import { requests } from "~/server/db/schema";
+import { createTRPCRouter, publicProcedure, authenticatedProcedure } from "../../trpc";
 
 
 
@@ -12,7 +12,7 @@ export const RequestsRouter = createTRPCRouter({
     return ctx.db.insert(requests)
       .values(input)
   }),
-  getAll: adminProcedure
+  getAll: authenticatedProcedure
   .query(({ctx}) =>{
     return ctx.db.query.requests.findMany()
   })
