@@ -22,7 +22,7 @@ export default async function PifagorPage(){
       <div className="w-full px-2 sm:px-6 py-2 flex flex-col gap-4">
         {
           infos.map((el) => (
-            <Collapsed text={el.description} title={el.title}/>
+            <Collapsed key={el.id} text={el.description} title={el.title}/>
           ))
         }
       </div>

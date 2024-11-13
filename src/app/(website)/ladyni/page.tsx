@@ -22,7 +22,7 @@ export default async function LadyniCalculate(){
         {
           infos.map((el) => (
 
-            <Collapsed text={el.description} title={el.title}/>
+            <Collapsed key={el.id} text={el.description} title={el.title}/>
           ))
         }
       </div>
