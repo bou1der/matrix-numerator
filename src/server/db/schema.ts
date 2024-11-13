@@ -8,7 +8,7 @@ import {
   integer
 } from "drizzle-orm/pg-core";
 
-export const createTable = pgTableCreator((_name) => `project_{name}`);
+export const createTable = pgTableCreator((_name) => `soul_${_name}`);
 
 
 

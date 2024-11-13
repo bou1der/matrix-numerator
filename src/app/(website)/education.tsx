@@ -12,6 +12,7 @@ const price = 5999
 
 
 export function EducationBlock(){
+  
   return (
     <div className="w-screen  overflow-hidden space-y-16  bg-secondary py-20 px-2 sm:px-10">
       <h1 className="text-secondary-foreground text-center"><b className="italic"> Обучение </b> нумерологии ваш путь к знаниям</h1>

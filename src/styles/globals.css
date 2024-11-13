@@ -87,7 +87,7 @@
       @apply pt-2;
     }
 
-    @apply focus-visible:outline-none focus-visible:outline-transparent;
+    @apply min-h-40 overflow-y-scroll py-1 px-2 focus-visible:outline-none focus-visible:outline-transparent;
   }
 
   * {

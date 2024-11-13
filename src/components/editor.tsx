@@ -7,7 +7,8 @@ import ListBullet from "@tiptap/extension-bullet-list"
 import CharacterCount from '@tiptap/extension-character-count'
 import { Skeleton } from "./ui/skeleton"
 import { Toggle } from "./ui/toggle"
-import { Bold, Italic, List, ListOrdered, Strikethrough, UnderlineIcon } from "lucide-react"
+import { Bold, Italic, List, ListOrdered, Strikethrough } from "lucide-react"
+import { cn } from "~/lib/utils"
 
 type Options = {
   limit?:{
@@ -16,11 +17,13 @@ type Options = {
   }
 }
 
-export function Editor({text, options, disabled}:
+export function Editor({text, className, onChange, options, disabled}:
   {
     text:string,
     disabled?:boolean,
-    options?:Options
+    options?:Options,
+    className?:string
+    onChange?:(arg:string) => void
   }){
 
   const editor = useEditor({
@@ -35,6 +38,9 @@ export function Editor({text, options, disabled}:
         limit: options?.limit?.length || undefined
       })
     ],
+    onUpdate: ({ editor }) =>{
+      onChange ? onChange(editor.getHTML()) : ""
+    },
     content: text,
   })
 
@@ -83,6 +89,7 @@ export function Editor({text, options, disabled}:
 
       <EditorContent
         editor={editor}
+        className={cn(className, "tiptap")}
       />
     </div>
   )
