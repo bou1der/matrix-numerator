@@ -40,7 +40,7 @@ export default function Combobox<T extends Item>({
       <PopoverTrigger asChild className={cn(className, "hover:bg-white/0 text-primary border border-primary bg-white/0 w-full")}>{children}</PopoverTrigger>
       <PopoverContent className={`${contentClassName || "w-24"} p-0 bg-background`}>
         <Command className="w-full">
-          <CommandList className="bg-background py-2">
+          <CommandList className="bg-background py-2 no-scrollbar">
             <CommandGroup>
               {values.map((v) => (
                 <CommandItem

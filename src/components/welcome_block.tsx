@@ -26,7 +26,7 @@ export default function WelcomeBlock({noButton, children}:{
           <div className="w-full px-2 h-10 flex justify-center">
             {noButton ? undefined : (
             <RequestForm>
-              <Button className="w-full sm:max-w-[370px] h-full rounded-xl">Записаться на консультацию</Button>
+              <Button className="font-montserrat w-full sm:max-w-[370px] h-full rounded-xl">Записаться на консультацию</Button>
             </RequestForm>
             )}
           </div>

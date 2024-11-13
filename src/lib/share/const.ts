@@ -34,6 +34,6 @@ export function IfAcumulate(arg:number){
   return arg
 }
 
-export const startYear = 1970;
+export const startYear = 1950;
 export const endYear = new Date().getFullYear()
 

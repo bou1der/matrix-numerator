@@ -45,7 +45,7 @@ export function CardService({ children}:
   }){
   return(
       <motion.div
-        className=" h-[360px] w-[300px] md:h-[380px] md:w-[320px] 2xl:h-[420px] 2xl:w-[380px] bg-white rounded-3xl relative"
+        className=" h-[360px] w-[300px] md:h-[380px]  2xl:w-[320px] bg-white rounded-3xl relative"
         initial="rest"
         whileHover="hover"
         animate="rest"

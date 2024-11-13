@@ -5,15 +5,16 @@ import { api } from "~/trpc/main/server";
 export default async function MyServices(){
   const services = await api.services.getAll()
   return (
-    <div className="w-screen min-h-screen py-16 px-2 sm:py-20 sm:px-10 bg-secondary flex gap-16 flex-col justify-around items-center sm:items-start overflow-hidden">
-      <div className="w-full flex flex-col gap-8">
-        <h1 className="text-secondary-foreground max-w-[620px] text-center sm:text-left">
-          Мои услуги для вашего <b className="italic text-5xl"> духовного </b> роста
-        </h1>
-          <p className=" ml-auto text-primary-foreground text-center sm:text-right  max-w-[620px]">
-            Мои консультации помогут вам лучше узнать себя и преодолеть трудности. Я предлагаю анализ личности, отношений, финансов и расчёты дат. Каждая услуга направлена на улучшение всех аспектов вашей жизни — от семьи до личностного роста. Узнайте себя глубже и найдите путь к гармонии и успеху.
-          </p>
-      </div>
+    <div className="w-screen min-h-screen bg-secondary flex items-center ">
+      <div className="container space-y-16 items-center mx-auto py-16 sm:py-20 px-2 ">
+        <div className="space-y-6">
+          <h1 className="text-secondary-foreground max-w-[620px] mx-auto lg:m-0 text-center lg:text-left">
+            Мои услуги для вашего <b className="italic text-2xl sm:text-5xl"> духовного </b> роста
+          </h1>
+            <p className=" lg:ml-auto text-primary-foreground text-center mx-auto lg:m-0 lg:text-right  max-w-[620px]">
+              Мои консультации помогут вам лучше узнать себя и преодолеть трудности. Я предлагаю анализ личности, отношений, финансов и расчёты дат. Каждая услуга направлена на улучшение всех аспектов вашей жизни — от семьи до личностного роста. Узнайте себя глубже и найдите путь к гармонии и успеху.
+            </p>
+        </div>
         <Carousel className="w-full">
           <CarouselContent className="px-4 py-4">
           {
@@ -35,6 +36,7 @@ export default async function MyServices(){
           }
           </CarouselContent>
         </Carousel>
+      </div>
     </div>
   )
 }

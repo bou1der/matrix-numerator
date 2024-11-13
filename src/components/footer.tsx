@@ -24,7 +24,7 @@ export function Footer(){
           <div className="w-full sm:max-w-32 mt-auto">
             <RequestForm>
               <Button className="w-full">
-                <ArrowRight />
+                <ArrowRight className="size-6" />
               </Button>
             </RequestForm>
           </div>

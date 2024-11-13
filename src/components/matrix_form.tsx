@@ -7,11 +7,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "~/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import { Dates, MonthEnum, monthKeys } from "~/lib/share/types/ladyni";
+import { Dates, monthKeys } from "~/lib/share/types/ladyni";
 import { ReactNode, useMemo } from "react";
 import { endYear, startYear } from "~/lib/share/const";
 import { DateSchema, dateSchema } from "~/lib/share/types";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import { Select, SelectContent, SelectGroup, SelectTrigger, SelectValue } from "./ui/select";
 import { cn } from "~/lib/utils";
 import Combobox from "./ui/combobox";
 import { OnError } from "~/lib/client/on_error";
@@ -21,6 +21,7 @@ import { OnError } from "~/lib/client/on_error";
 const years =  [...Array(endYear - startYear + 1)]
  .map((_, index) => startYear + index)
  .map((date) => ({id:date.toString(), name:date.toString()}))
+ .reverse()
 
 const months = Object.keys(Dates).map((date) => ({
   id:date,
@@ -61,7 +62,7 @@ export default function MatrixForm({ OnSubmit, children}:
 
   return(
       <div className="relative w-full h-full flex my-20 justify-center items-center">
-        <div className="z-[1] flex flex-col w-full space-y-6 sm:px-8 sm:max-w-[50%]">
+        <div className="z-[1] flex flex-col w-full space-y-6 sm:px-8 container">
           <div className="w-full flex justify-start"> 
             <Image
               src={Star as StaticImageData}

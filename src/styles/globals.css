@@ -82,7 +82,14 @@
   ol {
     @apply list-decimal pl-4;
   }
+  .tiptap::-webkit-scrollbar {
+    display: none;
+  }
+
   .tiptap {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
     p {
       @apply pt-2;
     }
@@ -110,5 +117,16 @@
 
   p {
     @apply font-montserrat text-xl font-medium;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }

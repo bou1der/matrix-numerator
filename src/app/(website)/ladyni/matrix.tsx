@@ -27,35 +27,37 @@ export default function LadyniMatrix(){
   return (
     <>
       <div className="w-screen min-h-screen overflow-hidden gap-12 flex flex-col justify-center items-center py-20 px-10">
-        <MatrixForm  OnSubmit={OnSubmit} >
-          <Image src={LadyniMatrixSvg as StaticImageData} alt="" className="h-full"/>
-        </MatrixForm>
-        <div className="w-full grid grid-cols-1 gap-6 lg:gap-0 lg:grid-rows-1 lg:grid-cols-2 justify-items-center ">
-          <div className="flex flex-col gap-4 justify-start items-center">
-            <div className="w-full flex justify-start"> 
-              <Image
-                src={Star}
-                alt=""
-                className="size-9"
-              />
+        <div className="container w-full">
+          <MatrixForm  OnSubmit={OnSubmit} >
+            <Image src={LadyniMatrixSvg as StaticImageData} alt="" className="h-full"/>
+          </MatrixForm>
+          <div className="w-full grid grid-cols-1 gap-6 lg:gap-0 lg:grid-rows-1 lg:grid-cols-2 justify-items-center ">
+            <div className="flex flex-col gap-4 justify-start items-center">
+              <div className="w-full flex justify-start"> 
+                <Image
+                  src={Star}
+                  alt=""
+                  className="size-9"
+                />
+              </div>
+              <PeopleNumberTable numbers={numbers} />
+              <div className="w-full flex justify-end"> 
+                <Image
+                  src={Star}
+                  alt=""
+                  className="size-9"
+                />
+              </div>
             </div>
-            <PeopleNumberTable numbers={numbers} />
-            <div className="w-full flex justify-end"> 
-              <Image
-                src={Star}
-                alt=""
-                className="size-9"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col gap-6 items-center">
-            <div className="flex justify-center items-center gap-6 z-20">
-              <Label htmlFor="switch-channel">Расчет денежного канала</Label>
-              <Switch id="switch-channel" checked={moneyChannel} onCheckedChange={setMoneyChannel} />
-            </div>
+            <div className="flex flex-col gap-6 items-center">
+              <div className="flex justify-center items-center gap-6 z-20">
+                <Label htmlFor="switch-channel">Расчет денежного канала</Label>
+                <Switch id="switch-channel" checked={moneyChannel} onCheckedChange={setMoneyChannel} />
+              </div>
 
-            <BaseMatrix numbers={numbers} moneyChannel={moneyChannel} />
-            <p className="order-last">16 - 8 - 1975</p>
+              <BaseMatrix numbers={numbers} moneyChannel={moneyChannel} />
+              <p className="order-last">16 - 8 - 1975</p>
+            </div>
           </div>
         </div>
       </div>

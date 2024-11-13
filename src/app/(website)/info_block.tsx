@@ -20,18 +20,18 @@ export default function InfoBlock(){
   }, [api])
 
   return(
-    <div className="overflow-hidden min-w-screen flex flex-col  lg:grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1  justify-items-center content-stretch min-h-screen gap-9 md:gap-40 px-2 md:px-10 py-16 md:py-20">
-        <div className="h-full flex flex-col justify-center gap-8 max-w-[632px]">
-          <div className="w-full flex justify-start"> 
+    <div className="min-h-screen container mx-auto flex flex-col-reverse py-16 xl:p-0 xl:flex-row justify-center items-center gap-5">
+        <div className="xl:w-1/2 space-y-8">
+          <div> 
             <Image
               src={Star as StaticImageData}
               alt=""
               className="size-9"
             />
           </div>
-           <div className="flex flex-col gap-6">
+           <div className="space-y-6 px-3">
              <h1>
-               <b className="italic text-5xl">Калькуляторы,</b> которые раскрывают вашу судьбу
+               <b className="italic text-2xl sm:text-5xl">Калькуляторы,</b> которые раскрывают вашу судьбу
              </h1>
              <p>
                На нашем сайте представлены четыре уникальных
@@ -60,21 +60,21 @@ export default function InfoBlock(){
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center order-first lg:order-last">
+        <div className="xl:w-1/2">
           <Carousel setApi={setApi}>
             <CarouselContent>
-              <CarouselItem className="w-full flex justify-center">
-                <Image src={Ladyni as StaticImageData} alt="" className="object-fill" />
+              <CarouselItem className="">
+                <Image src={Ladyni as StaticImageData} alt="" className="mx-auto" />
               </CarouselItem>
-              <CarouselItem className="w-full flex justify-center">
-                <Image src={Anael as StaticImageData} alt="" className="object-fill" />
+              <CarouselItem className="">
+                <Image src={Anael as StaticImageData} alt="" className="mx-auto" />
               </CarouselItem>
-              <CarouselItem className="w-full flex justify-center">
-                <Image src={Channel as StaticImageData} alt="" className="object-fill" />
+              <CarouselItem className="">
+                <Image src={Channel as StaticImageData} alt="" className="mx-auto" />
               </CarouselItem>
             </CarouselContent>
           </Carousel>
-          <div className="flex items-center gap-4">
+          <div className="flex my-4 items-center justify-center gap-4 ">
             <div onClick={() => api?.scrollTo(0)} className={`${current === 0 ? "border-primary/100" : ""} cursor-pointer border-2 border-primary/0 transition-colors duration-200 bg-[#DACEE8] size-3 rounded-md before:size-3 before:bg-black`}/>
             <div onClick={() => api?.scrollTo(1)} className={`${current === 1 ? "border-primary/100" : ""} cursor-pointer border-2 border-primary/0 transition-colors duration-200 bg-[#DACEE8] size-3 rounded-md before:size-3 before:bg-black`}/>
             <div onClick={() => api?.scrollTo(2)} className={`${current === 2 ? "border-primary/100" : ""} cursor-pointer border-2 border-primary/0 transition-colors duration-200 bg-[#DACEE8] size-3 rounded-md before:size-3 before:bg-black`}/>
