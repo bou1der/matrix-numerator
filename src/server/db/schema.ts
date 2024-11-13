@@ -5,11 +5,26 @@ import {
   text,
   timestamp,
   varchar,
+  integer
 } from "drizzle-orm/pg-core";
 
 export const createTable = pgTableCreator((_name) => `project_{name}`);
 
 
+
+
+export const education = createTable("education", {
+  id:text("id")
+    .notNull()
+    .primaryKey()
+    .$defaultFn(() => randomUUID()),
+  title: text("title")
+    .notNull(),
+  description:text("description")
+    .notNull(),
+  price: integer("price")
+    .notNull(),
+})
 
 export const requests = createTable("requests", {
   id: text("id")
