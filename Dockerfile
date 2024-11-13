@@ -1,11 +1,10 @@
-FROM oven/bun:1 
+FROM docker.io/node:lts-alpine
 
 WORKDIR /app
 
 COPY . . 
 
-RUN bun install
-
-RUN bun run build
-
+RUN npm cache clean --force
+RUN npm install --force
+RUN npm run build
 

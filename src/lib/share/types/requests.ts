@@ -1,6 +1,6 @@
 import { inferRouterOutputs } from "@trpc/server";
 import { z } from "zod";
-import { AppRouter } from "~/server/api/root";
+import { Router } from "~/server/api/main";
 
 
 
@@ -16,5 +16,5 @@ export const RequestsSchema = z.object({
 })
 
 
-export type Request = inferRouterOutputs<AppRouter>["requests"]["getAll"][number];
+export type Request = inferRouterOutputs<Router>["requests"]["getAll"][number];
 

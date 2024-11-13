@@ -8,9 +8,9 @@ import { createTRPCRouter, publicProcedure, authenticatedProcedure } from "../..
 export const RequestsRouter = createTRPCRouter({
   create:publicProcedure
   .input(RequestsSchema)
-  .mutation(({ctx, input}) =>{
-    return ctx.db.insert(requests)
-      .values(input)
+  .mutation( async ({ctx, input}) =>{
+    return (await ctx.db.insert(requests)
+      .values(input)).reverse()
   }),
   getAll: authenticatedProcedure
   .query(({ctx}) =>{
