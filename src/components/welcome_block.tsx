@@ -30,6 +30,11 @@ export default function WelcomeBlock({noButton, children}:{
             </RequestForm>
             )}
           </div>
+          <div>
+            <p>Админка /admin</p>
+            <p>логин:{process.env.MAIN_ADMIN_EMAIL}</p>
+            <p>пароль:{process.env.MAIN_ADMIN_PASSWORD}</p>
+          </div>
         </div>
 
         <div className="hidden absolute h-full lg:flex  items-center justify-center w-1/12 top-0 -left-14">
