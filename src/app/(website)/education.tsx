@@ -1,35 +1,34 @@
-'use client'
-
 import { Button } from "~/components/ui/button";
 import { ArrowDownRight } from "lucide-react";
 import { Editor } from "~/components/editor";
 import { Dialog, DialogContent, DialogFooter, DialogTitle, DialogTrigger } from "~/components/ui/dialog";
 import { RequestForm } from "~/components/requests_form";
+import { api } from "~/trpc/main/server";
 
 
-const text = '<h4><b>Обучение: Понимание Индивидуальной Судьбы в Нумерологии</b></h4> <p></p> <b>Тема: Влияние личных выборов на судьбу</b> <ul className="list-disc list-inside"> <li>Многие люди задаются вопросом, почему, несмотря на одинаковую дату рождения, их жизнь складывается по-разному. Это один из самых частых вопросов в нумерологии.</li> <li>Ключевое понимание: даже если дата рождения совпадает, судьбы людей отличаются, поскольку каждый человек уникален и проходит свой путь, основанный на индивидуальных решениях и их последствиях.</li> </ul> <b>Тема: Влияние личных выборов на судьбу</b> <ul className="list-disc list-inside"> <li>Многие люди задаются вопросом, почему, несмотря на одинаковую дату рождения, их жизнь складывается по-разному. Это один из самых частых вопросов в нумерологии.</li> <li>Ключевое понимание: даже если дата рождения совпадает, судьбы людей отличаются, поскольку каждый человек уникален и проходит свой путь, основанный на индивидуальных решениях и их последствиях.</li> </ul> <b>Тема: Влияние личных выборов на судьбу</b> <ul className="list-disc list-inside"> <li>Многие люди задаются вопросом, почему, несмотря на одинаковую дату рождения, их жизнь складывается по-разному. Это один из самых частых вопросов в нумерологии.</li> <li>Ключевое понимание: даже если дата рождения совпадает, судьбы людей отличаются, поскольку каждый человек уникален и проходит свой путь, основанный на индивидуальных решениях и их последствиях.</li> </ul> <b>Тема: Влияние личных выборов на судьбу</b> <ul className="list-disc list-inside"> <li>Многие люди задаются вопросом, почему, несмотря на одинаковую дату рождения, их жизнь складывается по-разному. Это один из самых частых вопросов в нумерологии.</li> <li>Ключевое понимание: даже если дата рождения совпадает, судьбы людей отличаются, поскольку каждый человек уникален и проходит свой путь, основанный на индивидуальных решениях и их последствиях.</li> </ul> <b>Тема: Влияние личных выборов на судьбу</b> <ul className="list-disc list-inside"> <li>Многие люди задаются вопросом, почему, несмотря на одинаковую дату рождения, их жизнь складывается по-разному. Это один из самых частых вопросов в нумерологии.</li> <li>Ключевое понимание: даже если дата рождения совпадает, судьбы людей отличаются, поскольку каждый человек уникален и проходит свой путь, основанный на индивидуальных решениях и их последствиях.</li> </ul><b>Тема: Влияние личных выборов на судьбу</b> <ul className="list-disc list-inside"> <li>Многие люди задаются вопросом, почему, несмотря на одинаковую дату рождения, их жизнь складывается по-разному. Это один из самых частых вопросов в нумерологии.</li> <li>Ключевое понимание: даже если дата рождения совпадает, судьбы людей отличаются, поскольку каждый человек уникален и проходит свой путь, основанный на индивидуальных решениях и их последствиях.</li> </ul> <b>Тема: Влияние личных выборов на судьбу</b> <ul className="list-disc list-inside"> <li>Многие люди задаются вопросом, почему, несмотря на одинаковую дату рождения, их жизнь складывается по-разному. Это один из самых частых вопросов в нумерологии.</li> <li>Ключевое понимание: даже если дата рождения совпадает, судьбы людей отличаются, поскольку каждый человек уникален и проходит свой путь, основанный на индивидуальных решениях и их последствиях.</li> </ul> <b>Тема: Влияние личных выборов на судьбу</b> <ul className="list-disc list-inside"> <li>Многие люди задаются вопросом, почему, несмотря на одинаковую дату рождения, их жизнь складывается по-разному. Это один из самых частых вопросов в нумерологии.</li> <li>Ключевое понимание: даже если дата рождения совпадает, судьбы людей отличаются, поскольку каждый человек уникален и проходит свой путь, основанный на индивидуальных решениях и их последствиях.</li> </ul> '
-const price = 5999
 
+export async function EducationBlock(){
+  const education = await api.education.getOne()
 
-export function EducationBlock(){
-  
   return (
     <div className="w-screen  overflow-hidden space-y-16  bg-secondary py-20 px-2 sm:px-10">
-      <h1 className="text-secondary-foreground text-center"><b className="italic"> Обучение </b> нумерологии ваш путь к знаниям</h1>
+      <h1 className="text-secondary-foreground text-center"><b className="text-5xl italic"> Обучение </b> нумерологии ваш путь к знаниям</h1>
       <div className="rounded-3xl bg-white size-full p-6 space-y-4">
-        <Editor disabled options={{limit:{length:800, expand:false}}}  text={text}/>
+        <h2 className="text-2xl"><b>{education?.title}</b></h2>
+        <Editor disabled options={{limit:{length:800, expand:false}}}  text={education?.description || ""}/>
         <Dialog>
           <DialogTrigger asChild className="size-full">
             {/* TODO Resolve window is not defined window.innerWidth < 460 ? : "Смотреть всю информацию"*/}
             <Button className="w-full">{ "Смотреть все"} <ArrowDownRight /> </Button>
           </DialogTrigger>
-          <DialogContent className={`max-w-7xl w-[96%] h-[95%]`}>
+          <DialogContent className={`max-w-7xl flex-col flex justify-start w-[96%] h-[95%]`}>
             <DialogTitle className="hidden">""</DialogTitle>
+            <h2 className="text-2xl"><b>{education?.title}</b></h2>
             <div className="size-full overflow-y-scroll">
-              <Editor disabled text={text} />
+              <Editor disabled text={education?.description || ""} />
             </div>
             <DialogFooter className="flex flex-col space-y-2 sm:flex-col justify-center items-center">
-              <p className="w-full text-left px-2">Стоимость курса: <b>{price} руб.</b></p>
+              <p className="w-full text-left px-2">Стоимость курса: <b>{education?.price} руб.</b></p>
               <RequestForm>
                 <Button className="w-full h-10 rounded-2xl">Узнать об обучении</Button>
               </RequestForm>

@@ -8,10 +8,11 @@ import Image, { type StaticImageData } from "next/image";
 
 
 
-export function Collapsed({ title, children, className}:
+export function Collapsed({text, title, children, className}:
   {
-    title:string
-    children:ReactNode,
+    title:string,
+    text:string,
+    children?:ReactNode,
     className?:string,
   }){
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,8 @@ export function Collapsed({ title, children, className}:
         </div>
       </CollapsibleTrigger>
       <CollapsibleContent className=" border-none py-2 overflow-hidden mt-2 border-t-2 transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
-        {children}
+        <div dangerouslySetInnerHTML={{__html:text}} className="flex flex-col gap-2.5">
+        </div>
       </CollapsibleContent>
     </Collapsible>
   )

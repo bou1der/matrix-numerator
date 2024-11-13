@@ -1,6 +1,5 @@
 'use client'
 import { zodResolver } from "@hookform/resolvers/zod";
-import { EditIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -93,7 +92,7 @@ export function EducationUpdate({education}:
           )}
         />
 
-        <Button>Сохранить</Button>
+        <Button disabled={updateEducationMutation.isPending}>Сохранить</Button>
       </form>
     </Form>
   )

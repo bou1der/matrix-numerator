@@ -31,7 +31,7 @@ export default function InfoBlock(){
           </div>
            <div className="flex flex-col gap-6">
              <h1>
-               <b className="italic">Калькуляторы,</b> которые раскрывают вашу судьбу
+               <b className="italic text-5xl">Калькуляторы,</b> которые раскрывают вашу судьбу
              </h1>
              <p>
                На нашем сайте представлены четыре уникальных

@@ -5,8 +5,6 @@ import { EducationUpdate } from "./form"
 
 export default async function EducationAdmin(){
   const education = await api.education.getOne()
-
-
   return (
     <DashboardContent>
       <DashboardHeader>

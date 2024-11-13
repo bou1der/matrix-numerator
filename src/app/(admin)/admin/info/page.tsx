@@ -1,23 +1,24 @@
 import { DashboardContent, DashboardHeader, DashboardTitle } from "~/components/ui/dashboard";
 import { DataTable } from "~/components/ui/data-table";
-import { columns } from "./columns";
 import { api } from "~/trpc/main/server";
-import { ServiceCreateUpdate } from "./form";
+import { columns } from "./columns";
+import { InformationCreateUpdate } from "./form";
 
 
 
-export default async function ServicesAdmin(){
-  const services = await api.services.getAll()
 
-  return (
+export default async function InfoAdmin(){
+  const infos = await api.information.getAll()
+
+  return(
     <DashboardContent>
       <DashboardHeader>
-        <DashboardTitle>Услуги</DashboardTitle>
-        <ServiceCreateUpdate />
+        <DashboardTitle>Расшифровка</DashboardTitle>
+        <InformationCreateUpdate />
       </DashboardHeader>
       <DataTable
         columns={columns}
-        data={services}
+        data={infos}
       />
     </DashboardContent>
   )
