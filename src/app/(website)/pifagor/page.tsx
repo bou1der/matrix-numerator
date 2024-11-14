@@ -10,7 +10,7 @@ export default async function PifagorPage(){
 
   return(
     <>
-      <WelcomeBlock theme="PIFAGOR" noButton>
+      <WelcomeBlock theme="PIFAGOR" >
         <h1 className="text-secondary-foreground text-center max-w-[832px] ">
           Квадрат Пифагора
         </h1>
