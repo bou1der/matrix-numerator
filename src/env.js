@@ -15,10 +15,15 @@ export const env = createEnv({
 
     MAIN_ADMIN_PASSWORD: z.string(),
     MAIN_ADMIN_EMAIL: z.string(),
+    TELEGRAM_URL:z.string().optional(),
+    WHATSAPP_URL:z.string().optional()
   },
 
   client: {},
   runtimeEnv: {
+    TELEGRAM_URL:process.env.TELEGRAM_URL,
+    WHATSAPP_URL: process.env.WHATSAPP_URL,
+
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,

@@ -9,11 +9,9 @@ export default function MainLayout({children}:
     children: ReactNode
   }){
   return(
-    <main>
+    <main className="overflow-x-hidden">
       <Navbar />
-      <div className="w-full h-full">
-        {children}
-      </div>
+      {children}
       <Footer />
     </main>
   )

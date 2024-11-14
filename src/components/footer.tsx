@@ -1,5 +1,7 @@
 import Image, { type StaticImageData } from "next/image"
 import Link from "next/link";
+import WhatsApp from "public/Whatsapp.svg"
+import Telegram from "public/Telegram.svg"
 import SmootraySVG from "public/smoothray.svg"
 import Logo from "./logo";
 import { ArrowRight, Diamond, Grid2x2, Triangle } from "lucide-react";
@@ -38,6 +40,10 @@ export function Footer(){
           <Link className="flex gap-2" href={"/anael"}><Diamond /> Кармическая марица Анаэль</Link>
         </div>
         <div className="border-t-2 border-white w-full h-0.5" />
+        <div className="flex items-center justify-center gap-6">
+          <Link href="" ><Image src={WhatsApp} alt="" /></Link>
+          <Link href="" ><Image src={Telegram} alt="" /></Link>
+        </div>
         <p className="text-center text-[16px] text-secondary-foreground opacity-60">2024 Все права защищены</p>
       </div>
     </div>

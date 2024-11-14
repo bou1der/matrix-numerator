@@ -18,8 +18,8 @@ export default async function MyServices(){
         </div>
         <Carousel  className="w-full">
 
-          <CarouselNext className="-right-7 hidden sm:inline-flex" variant="ghost"><ChevronRight color="white" strokeWidth="4" className="size-6" /></CarouselNext>
-          <CarouselPrevious className="-left-7 hidden sm:inline-flex" variant="ghost"><ChevronLeft color="white" strokeWidth="4" className="size-6" /></CarouselPrevious>
+          <CarouselNext className="-right-10 hover:bg-white/0  hidden sm:inline-flex" variant="ghost"><ChevronRight color="white" strokeWidth="4" className="size-6" /></CarouselNext>
+          <CarouselPrevious className="-left-10 hover:bg-white/0 hidden sm:inline-flex" variant="ghost"><ChevronLeft color="white" strokeWidth="4" className="size-6" /></CarouselPrevious>
           <CarouselContent className="px-4 py-4">
           {
             services.map((el) =>(
