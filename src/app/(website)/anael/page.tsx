@@ -10,7 +10,7 @@ export default async function AnaelPage(){
 
   return (
     <>
-      <WelcomeBlock>
+      <WelcomeBlock theme="ANAEL">
           <h1 className="text-secondary-foreground text-center max-w-[832px] ">
             Кармическая матрица Анаэль
           </h1>

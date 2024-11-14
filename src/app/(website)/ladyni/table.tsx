@@ -94,16 +94,18 @@ export function PeopleNumberTable({numbers, className}:
   }){
 
   return(
-    <Table className={cn(className, "sm:max-w-[640px] sm:min-w-[540px]")}>
-      <TableBody className=" flex flex-col justify-center items-center">
+    <Table className={cn(className)}>
+      <TableBody className=" flex flex-col justify-center items-center border-2 rounded-md">
         {
           MainNumbers.map((el) => (
-            <TableRow key={el.text} className="   border w-full sm:w-4/5 grid grid-cols-2 place-content-center justify-items-center">
-              <TableCell className="flex justify-start w-full ">
-                {el.text}
+            <TableRow key={el.text} className="w-full grid grid-cols-2 place-content-center justify-items-center">
+              <TableCell className="w-full ">
+                <p className="text-sm ">{el.text}</p>
               </TableCell>
-              <TableCell >
-                {el.getNumbers(numbers)}
+              <TableCell className="w-full border-l-2 flex items-center">
+                <p className="text-sm">
+                  {el.getNumbers(numbers)}
+                </p>
               </TableCell>
             </TableRow>
           ))

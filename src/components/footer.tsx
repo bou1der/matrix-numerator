@@ -13,11 +13,11 @@ export function Footer(){
     <div className="py-10 bg-secondary">
       <div className="w-full  px-2 py-16 sm:px-10 sm:py-20">
         <div className="size-full bg-background p-3 sm:p-12 rounded-xl flex gap-28 sm:gap-0  flex-col sm:flex-row justify-between">
-          <div className="h-full flex flex-col  gap-2 sm:gap-[76px] justify-between">
+          <div className="h-full flex flex-col p-3  gap-2 sm:gap-[76px] justify-between">
             <Image
               src={SmootraySVG as StaticImageData}
               alt=""
-              className="size-9"
+              className="size-8"
             />
             <h1 className="max-w-[835px]">Пишите мне свои вопросы и отзывы — я всегда на связи!</h1>
           </div>

@@ -14,27 +14,27 @@ import {
 } from "~/components/ui/alert-dialog";
 import { DropdownMenuItem } from "~/components/ui/dropdown-menu";
 import { useToast } from "~/hooks/use-toast";
-import { Service } from "~/lib/share/types/services";
+import { Information } from "~/lib/share/types/informations";
 import { api } from "~/trpc/main/react";
 
 export default function DeleteInfo({
   info,
 }: {
-  info: Service;
+  info: Information;
 }) {
   const router = useRouter();
   const { toast } = useToast();
 
-  const deleteGroupMutation = api.services.delete.useMutation({
+  const deleteGroupMutation = api.information.delete.useMutation({
     onSuccess: () => {
       toast({
-        title: "Услуга удалена",
+        title: "Расшифровка удалена",
       });
       router.refresh();
     },
     onError: (err) => {
       toast({
-        title: "Ошибка удаления услуги",
+        title: "Ошибка удаления расшифровки",
         description: err.message,
         variant: "destructive",
       });
@@ -50,7 +50,7 @@ export default function DeleteInfo({
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Удаление услуги</AlertDialogTitle>
+          <AlertDialogTitle>Удаление расшифровки</AlertDialogTitle>
         </AlertDialogHeader>
         <AlertDialogDescription>
           Вы уверены что хотите удалить "{info.title}"?

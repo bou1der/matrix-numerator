@@ -4,6 +4,7 @@ import Star from "../../../public/star.svg"
 import Anael from "public/matrixs/anael.svg"
 import Ladyni from "public/matrixs/ladyni.svg"
 import Channel from "public/matrixs/money-channel.svg"
+import AutoPlay from "embla-carousel-autoplay"
 import { Carousel, type CarouselApi, CarouselContent, CarouselItem } from "~/components/ui/carousel"
 import { useEffect, useState } from "react"
 
@@ -61,7 +62,12 @@ export default function InfoBlock(){
         </div>
 
         <div className="xl:w-1/2">
-          <Carousel setApi={setApi}>
+          <p className="text-center">16 - 8 - 1975</p>
+          <Carousel plugins={[
+            AutoPlay({
+              delay:7000
+            })
+        ]} setApi={setApi}>
             <CarouselContent>
               <CarouselItem className="">
                 <Image src={Ladyni as StaticImageData} alt="" className="mx-auto" />

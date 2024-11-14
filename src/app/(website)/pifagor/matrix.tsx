@@ -45,10 +45,8 @@ export function PifagorMatrix(){
       <MatrixForm OnSubmit={OnSubmit}>
         <Image className=" size-[360px]" src={PifagorSvg as StaticImageData} alt="" />
       </MatrixForm>
-      <div className="w-full flex justify-center sm:justify-between items-end">
-        <Image src={ComboStar as StaticImageData} alt="" className="hidden sm:block" />
+      <div className="w-full container">
         <PifagorBase numbers={numbers}/>
-        <Image src={RadialStar as StaticImageData} alt="" className="hidden sm:block"/>
       </div>
     </div>
   )

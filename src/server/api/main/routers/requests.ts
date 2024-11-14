@@ -10,7 +10,10 @@ export const RequestsRouter = createTRPCRouter({
   .input(RequestsSchema)
   .mutation( async ({ctx, input}) =>{
     return (await ctx.db.insert(requests)
-      .values(input)).reverse()
+      .values({
+        ...input,
+        theme:input.type
+      })).reverse()
   }),
   getAll: authenticatedProcedure
   .query(({ctx}) =>{

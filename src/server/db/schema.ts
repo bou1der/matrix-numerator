@@ -65,6 +65,18 @@ export const education = createTable("education", {
     .notNull(),
 })
 
+export const ThemeEnum = pgEnum("Theme",[
+  "PIFAGOR",
+  "LADYNI",
+  "ANAEL",
+  "MAIN",
+  "EDUCATION"
+])
+
+export const ThemeSchema = z.enum(ThemeEnum.enumValues)
+
+export type ThemeRequest = z.infer<typeof ThemeSchema>
+
 export const requests = createTable("requests", {
   id: text("id")
     .notNull()
@@ -75,6 +87,8 @@ export const requests = createTable("requests", {
   phone: varchar("number", {length:64})
     .notNull(),
   email: varchar("email", {length:255})
+    .notNull(),
+  theme:ThemeEnum("Theme")
     .notNull(),
   time: timestamp("time", {
     mode:"date",

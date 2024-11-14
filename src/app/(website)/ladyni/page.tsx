@@ -9,7 +9,7 @@ export default async function LadyniCalculate(){
 
   return(
     <>
-      <WelcomeBlock noButton >
+      <WelcomeBlock theme="LADYNI" noButton >
         <h1 className="text-secondary-foreground text-center max-w-[832px] ">
           Матрица Ладини
         </h1>

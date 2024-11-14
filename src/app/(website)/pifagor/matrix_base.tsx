@@ -133,7 +133,7 @@ export function PifagorBase({numbers}:{
       </div>
       {
         cells.map((cell) =>(
-          <div key={cell.title} className="size-full lg:size-44 border-2 border-primary gap-1 sm:gap-4 flex flex-col justify-center items-center">
+          <div key={cell.title} className="sm:w-full sm:h-44 border-2 border-primary gap-1 sm:gap-4 flex flex-col justify-center items-center">
             <p className="text-[8px] sm:text-xl">{cell.title}</p>
             <p className="text-[8px] sm:text-xl">{cell.value(numbers)}</p>
           </div>

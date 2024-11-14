@@ -63,7 +63,7 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="h-screen container flex items-center justify-center">
+    <div className="mx-auto h-screen container flex items-center justify-center">
       <div className="rounded-xl shadow-xl border-2 border-input p-6 space-y-6 flex flex-col min-w-[min(80vw,400px)]">
         <h1 className="text-2xl font-medium">Вход</h1>
         <Form {...form}>

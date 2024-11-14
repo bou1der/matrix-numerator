@@ -16,16 +16,16 @@ const items = [
   },
   {
     href:"/admin/info",
-    title:"Расшифровка"
+    title:"Расшифровки"
   },
   {
     href:"/admin/requests",
     title:"Запросы"
   },
-  {
-    href:"/admin/call",
-    title:"Обратная связь"
-  },
+  // {
+  //   href:"/admin/call",
+  //   title:"Обратная связь"
+  // },
 ]
 
 

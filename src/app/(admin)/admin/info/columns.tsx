@@ -5,6 +5,7 @@ import { MoreHorizontal } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "~/components/ui/dropdown-menu";
 import { InformationCreateUpdate } from "./form";
 import { Information, InformationNames } from "~/lib/share/types/informations";
+import DeleteInfo from "./delete";
 
 
 
@@ -34,6 +35,8 @@ export const columns:ColumnDef<Information>[] = [
         </DropdownMenuTrigger>
         <DropdownMenuContent align="center">
           <InformationCreateUpdate information={original} />
+          <DeleteInfo info={original} />
+
         </DropdownMenuContent>
       </DropdownMenu>
       )

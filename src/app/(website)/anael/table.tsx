@@ -48,22 +48,22 @@ export function PeopleNumberTable({numbers, className}:
   }){
 
   return(
-    <Table className={cn(className, "border-2 w-full sm:min-w-[600px]")}>
-      <TableHeader >
+    <Table className={cn(className, "border rounded-md w-full sm:min-w-[600px]")}>
+      <TableHeader>
         <TableRow>
-          <TableHead className="border-x-2 font-semibold text-center  text-primary text-[6px] sm:text-[14px]">Путь</TableHead>
-          <TableHead className="border-x-2 font-semibold text-center  text-primary text-[6px] sm:text-[14px]">Число достижений (ЧД)</TableHead>
-          <TableHead className="border-x-2 font-semibold text-center text-primary text-[6px] sm:text-[14px]">Кармический узел (КУ)</TableHead>
+          <TableHead className="border-none w-1/3 border-x-2 font-semibold text-center  text-primary text-[6px] sm:text-[14px]">Путь</TableHead>
+          <TableHead className="w-1/3 border-x-2 font-semibold text-center  text-primary text-[6px] sm:text-[14px]">Число достижений (ЧД)</TableHead>
+          <TableHead className="border-none w-1/3 border-x-2 font-semibold text-center text-primary text-[6px] sm:text-[14px]">Кармический узел (КУ)</TableHead>
         </TableRow>
       </TableHeader>
-      <TableBody className="border-2" >
+      <TableBody className="" >
         {
           cells.map((el) => (
             <TableRow key={el.title} className="w-full">
               <TableCell className="text-center text-[6px] sm:text-[14px]">
                 {el.title}
               </TableCell>
-              <TableCell className=" text-center text-[6px] sm:text-[14px]" >
+              <TableCell className=" border-x text-center text-[6px] sm:text-[14px]" >
                 {el.ach(numbers)}
               </TableCell>
               <TableCell className="text-center text-[6px] sm:text-[14px]">

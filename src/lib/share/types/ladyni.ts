@@ -2,6 +2,11 @@ import { z } from "zod"
 
 
 export type LadyniMatrixNumbers = {
+  origin:{
+    day:number,
+    month:number,
+    year:number
+  }
   special:{
     YY:number,
     MM:number,

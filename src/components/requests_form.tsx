@@ -12,9 +12,11 @@ import { Form, FormControl, FormField, FormItem } from "./ui/form";
 import { Input } from "./ui/input";
 import { api } from "~/trpc/main/react";
 import { OnError } from "~/lib/client/on_error";
+import { ThemeRequest } from "~/server/db/schema";
 
 
-export function RequestForm({children}:{
+export function RequestForm({theme, children}:{
+  theme:ThemeRequest,
   children:ReactNode
 }){
 
@@ -22,7 +24,7 @@ export function RequestForm({children}:{
   const router = useRouter()
 
   const form = useForm({
-    resolver: zodResolver(RequestsSchema),
+    resolver: zodResolver(RequestsSchema.omit({type:true})),
     defaultValues:{
       name:"",
       phone:"",
@@ -46,7 +48,8 @@ export function RequestForm({children}:{
   
   const OnSubmit = (data: z.infer<typeof RequestsSchema>) => {
     return createRequestMutation.mutate({
-      ...data
+      ...data,
+      type:theme
     })
   }
 

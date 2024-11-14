@@ -15,13 +15,13 @@ export const InformationNames:{
 
 export const InformationSchema = z.object({
   title:z.string({
-    required_error:"Пустой заголовок",
-    message:"Пустое заголовок"
-  }).min(1),
+    required_error:"Заголовок не заполнен",
+    message:"Заголовок не является строкой"
+  }).min(1,"Заголовок не заполнен") ,
   description: z.string({
-    required_error:"Пустое описание",
-    message:"Пустое описание"
-  }).min(1),
+    required_error:"Описание не заполнено",
+    message:"Описание не является строкой"
+  }).min(1, "Описание не заполнено"),
   type: InfoSchema
 })
 

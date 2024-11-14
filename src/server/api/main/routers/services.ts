@@ -22,6 +22,12 @@ export const servicesRouter = createTRPCRouter({
     await ctx.db.update(services)
       .set(input)
       .where(eq(services.id, input.id))
+  }),
+  delete: authenticatedProcedure
+  .input(IdSchema)
+  .mutation( async ({ctx, input}) => {
+    await ctx.db.delete(services)
+      .where(eq(services.id, input.id))
   })
 
 });

@@ -26,13 +26,13 @@ export default function LadyniMatrix(){
 
   return (
     <>
-      <div className="w-screen min-h-screen overflow-hidden gap-12 flex flex-col justify-center items-center py-20 px-10">
+      <div className="w-screen min-h-screen overflow-hidden gap-12 flex flex-col justify-center items-center py-20 px-2 sm:px-10">
         <div className="container w-full">
           <MatrixForm  OnSubmit={OnSubmit} >
             <Image src={LadyniMatrixSvg as StaticImageData} alt="" className="h-full"/>
           </MatrixForm>
           <div className="w-full grid grid-cols-1 gap-6 lg:gap-0 lg:grid-rows-1 lg:grid-cols-2 justify-items-center ">
-            <div className="flex flex-col gap-4 justify-start items-center">
+            <div className="flex flex-col gap-4 w-full justify-between items-center">
               <div className="w-full flex justify-start"> 
                 <Image
                   src={Star}
@@ -56,7 +56,7 @@ export default function LadyniMatrix(){
               </div>
 
               <BaseMatrix numbers={numbers} moneyChannel={moneyChannel} />
-              <p className="order-last">16 - 8 - 1975</p>
+              <p className="order-last">{numbers ? `${numbers.origin.day} - ${numbers.origin.month} - ${numbers.origin.year}` : "? - ? - ????"}</p>
             </div>
           </div>
         </div>
@@ -83,6 +83,10 @@ function CalculateLadyniNumbers(data:DateSchema, setNumbers:Dispatch<SetStateAct
   const x6 = Acumulate([x1, x2, x3, x4])
 
   const matrixNumbers: LadyniMatrixNumbers = {
+    origin:{
+      day:data.date,
+      ...data
+    },
     special:{
       YY,
       MM,

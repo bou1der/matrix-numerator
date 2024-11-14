@@ -42,6 +42,7 @@ export function InformationCreateUpdate({information}:
     onSuccess:() =>{
       toast.success("Расшифровка успешно созданна")
       setOpen(false)
+      form.reset()
       router.refresh()
     },
     onError:(err) => {

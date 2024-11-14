@@ -8,7 +8,7 @@ import { EducationBlock } from "./education";
 export default function Home(){
   return (
     <>
-      <WelcomeBlock >
+      <WelcomeBlock theme="MAIN" >
         <h1 className="text-secondary-foreground text-center max-w-[832px] ">
           Раскройте тайны с «<b className="italic text-2xl sm:text-5xl">Ключом Души</b>» — уникальные расчеты для вашего пути
         </h1>

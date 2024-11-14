@@ -5,10 +5,12 @@ import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 import { ReactNode } from "react";
 import { RequestForm } from "./requests_form";
+import { ThemeRequest } from "~/server/db/schema";
 
-export default function WelcomeBlock({noButton, children}:{
+export default function WelcomeBlock({theme, noButton, children}:{
+  theme:ThemeRequest
   noButton?:true,
-  children:ReactNode
+  children:ReactNode,
 }){
   return (
     <>
@@ -25,15 +27,10 @@ export default function WelcomeBlock({noButton, children}:{
           </div>
           <div className="w-full px-2 h-10 flex justify-center">
             {noButton ? undefined : (
-            <RequestForm>
+            <RequestForm theme={theme}>
               <Button className="font-montserrat w-full sm:max-w-[370px] h-full rounded-xl">Записаться на консультацию</Button>
             </RequestForm>
             )}
-          </div>
-          <div>
-            <p>Админка /admin</p>
-            <p>логин:{process.env.MAIN_ADMIN_EMAIL}</p>
-            <p>пароль:{process.env.MAIN_ADMIN_PASSWORD}</p>
           </div>
         </div>
 

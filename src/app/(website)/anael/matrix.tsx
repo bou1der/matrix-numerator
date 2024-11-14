@@ -47,7 +47,7 @@ export function AnaelMatrix(){
         <MatrixForm  OnSubmit={OnSubmit} >
           <Image src={AnaelMatrixSvg as StaticImageData} alt="" className="h-full"/>
         </MatrixForm>
-        <div className="w-full grid grid-cols-1 gap-6 lg:gap-0 xl::grid-rows-1 xl:grid-cols-2 justify-items-center ">
+        <div className="container grid grid-cols-1 gap-6 lg:gap-0 xl:grid-rows-1 xl:grid-cols-2 justify-items-center ">
           <div className="flex flex-col gap-4 w-full justify-center items-center">
             <div className="w-full flex justify-start">
               <Image
@@ -59,7 +59,7 @@ export function AnaelMatrix(){
             <h1 className="text-center text-[12px] sm:text-[20px]">
               Целостная картина человека
             </h1>
-            <PeopleNumberTable className=""  numbers={numbers} />
+            <PeopleNumberTable numbers={numbers} />
             <div className="w-full flex justify-end"> 
               <Image
                 src={Star}

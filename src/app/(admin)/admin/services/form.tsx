@@ -34,6 +34,7 @@ export function ServiceCreateUpdate({service}:
     onSuccess:() =>{
       toast.success("Услуга успешно созданна")
       setOpen(false)
+      form.reset()
       router.refresh()
     },
     onError:(err) => {

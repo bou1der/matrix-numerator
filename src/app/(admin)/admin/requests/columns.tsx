@@ -3,7 +3,7 @@
 import { ru } from "date-fns/locale"
 import {type ColumnDef } from "@tanstack/react-table"
 import { formatDistance } from "date-fns";
-import { Request } from "~/lib/share/types/requests";
+import { Request, ThemeNames } from "~/lib/share/types/requests";
 
 
 
@@ -20,6 +20,16 @@ export const columns:ColumnDef<Request>[] = [
   {
     accessorKey:"email",
     header:"email",
+  },
+  {
+    accessorKey:"theme",
+    header:"Форма",
+    cell({row}) {
+      const origin = row.original
+      return (
+        <p className="text-sm">{ThemeNames[origin.theme]}</p>
+      )
+    },
   },
   {
     accessorKey:"time",
