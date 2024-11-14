@@ -17,4 +17,4 @@ export const educationScheme = z.object({
 })
 
 
-export type Education = inferRouterOutputs<Router>['education']['getOne']
+export type Education = inferRouterOutputs<Router>['education']['getAll'][number]

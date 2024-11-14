@@ -11,7 +11,7 @@ import { CallsForm } from "./requests_form";
 export function Footer(){
   return (
     <div className="py-10 bg-secondary">
-      <div className="w-full  px-2 py-16 sm:px-10 sm:py-20">
+      <div className="w-full  px-2 py-16 sm:px-10 sm:py-20 container mx-auto">
         <div className="size-full bg-background p-3 sm:p-12 rounded-xl flex gap-28 sm:gap-0  flex-col sm:flex-row justify-between">
           <div className="h-full flex flex-col p-3  gap-2 sm:gap-[76px] justify-between">
             <Image

@@ -31,7 +31,7 @@ export default function InfoBlock(){
             />
           </div>
            <div className="space-y-6 px-3">
-             <h1>
+             <h1 className="font-medium">
                <b className="italic text-2xl sm:text-5xl">Калькуляторы,</b> которые раскрывают вашу судьбу
              </h1>
              <p>

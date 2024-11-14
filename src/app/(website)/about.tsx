@@ -1,12 +1,12 @@
 import Image, { type StaticImageData} from "next/image"
 
-import PersonImg from "../../../public/person.png"
-import Star from "../../../public/star.svg"
+import PersonImg from "/public/person.png"
+import Star from "/public/star.svg"
 
 export default function AboutMeBlock(){
   return(
-    <div className="overflow-hidden min-w-screen flex flex-col  lg:grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1  justify-items-center content-stretch min-h-screen gap-9 md:gap-40">
-        <div className="size-full flex flex-col lg:pl-10 justify-center items-center gap-8 lg:max-w-[632px]">
+    <div className="overflow-hidden min-w-screen flex flex-col  lg:grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1  justify-items-center content-stretch gap-9 md:gap-40">
+        <div className="size-full flex flex-col  justify-center items-center gap-8 lg:max-w-[632px]">
           <div className="w-full flex justify-start"> 
             <Image
               src={Star as StaticImageData}
@@ -15,7 +15,7 @@ export default function AboutMeBlock(){
             />
           </div>
           <div className="flex flex-col  gap-6 px-2">
-            <h1>
+            <h1 className="font-medium">
               Обо мне
             </h1>
             <p>
