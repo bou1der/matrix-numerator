@@ -24,8 +24,8 @@ export default async function MyServices(){
                   <b className="text-xl">
                     {el.title}
                   </b>
-                  <p className="text-[16px] ">
-                    {el.description}
+                  <p className="break-words text-[16px]">
+                  {el.description}
                   </p>
                   <p className="text-[16px]">
                     Стоимость курса:<b> {el.price} руб.</b>

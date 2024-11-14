@@ -14,6 +14,27 @@ export const createTable = pgTableCreator((_name) => `soul_${_name}`);
 
 
 
+export const calls = createTable("call",{
+  id: text("id")
+    .notNull()
+    .primaryKey()
+    .$defaultFn(() => randomUUID()),
+  name: text("name")
+    .notNull(),
+  description: text("description")
+    .notNull(),
+  phone: text("phone")
+    .notNull(),
+  email:text("email")
+    .notNull(),
+  time: timestamp("time", {
+    mode:"date",
+    withTimezone:true
+  })
+  .notNull()
+  .default(sql`now()`)
+})
+
 export const infoEnum = pgEnum("infoEnum", [
   "LADYNI",
   "PIFAGOR",

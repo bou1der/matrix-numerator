@@ -4,7 +4,7 @@ import SmootraySVG from "public/smoothray.svg"
 import Logo from "./logo";
 import { ArrowRight, Diamond, Grid2x2, Triangle } from "lucide-react";
 import { Button } from "./ui/button";
-import { RequestForm } from "./requests_form";
+import { CallsForm } from "./requests_form";
 
 
 
@@ -22,11 +22,11 @@ export function Footer(){
             <h1 className="max-w-[835px]">Пишите мне свои вопросы и отзывы — я всегда на связи!</h1>
           </div>
           <div className="w-full sm:max-w-32 mt-auto">
-            <RequestForm>
+            <CallsForm>
               <Button className="w-full">
                 <ArrowRight className="size-6" />
               </Button>
-            </RequestForm>
+            </CallsForm>
           </div>
         </div>
       </div>

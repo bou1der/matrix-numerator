@@ -22,10 +22,10 @@ const items = [
     href:"/admin/requests",
     title:"Запросы"
   },
-  // {
-  //   href:"/admin/call",
-  //   title:"Обратная связь"
-  // },
+  {
+    href:"/admin/calls",
+    title:"Обратная связь"
+  },
 ]
 
 

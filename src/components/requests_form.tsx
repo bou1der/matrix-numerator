@@ -13,7 +13,10 @@ import { Input } from "./ui/input";
 import { api } from "~/trpc/main/react";
 import { OnError } from "~/lib/client/on_error";
 import { ThemeRequest } from "~/server/db/schema";
+import { CallsSchema } from "~/lib/share/types/calls";
+import { Textarea } from "./ui/textarea";
 
+const omited = RequestsSchema.omit({type:true})
 
 export function RequestForm({theme, children}:{
   theme:ThemeRequest,
@@ -24,11 +27,11 @@ export function RequestForm({theme, children}:{
   const router = useRouter()
 
   const form = useForm({
-    resolver: zodResolver(RequestsSchema.omit({type:true})),
+    resolver: zodResolver(omited),
     defaultValues:{
       name:"",
       phone:"",
-      email:""
+      email:"",
     }
   })
 
@@ -46,7 +49,7 @@ export function RequestForm({theme, children}:{
     }
   })
   
-  const OnSubmit = (data: z.infer<typeof RequestsSchema>) => {
+  const OnSubmit = (data: z.infer<typeof omited>) => {
     return createRequestMutation.mutate({
       ...data,
       type:theme
@@ -106,7 +109,123 @@ export function RequestForm({theme, children}:{
             />
 
             <DialogFooter className="w-full">
-              <Button className="w-full rounded-xl" type="submit" >
+              <Button className="w-full rounded-xl" type="submit" disabled={createRequestMutation.isPending} >
+                Отправить
+              </Button>
+            </DialogFooter>
+          </form>
+        </Form>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+
+
+
+export function CallsForm({ children}:{
+  children:ReactNode
+}){
+
+  const [open, setOpen] = useState(false)
+  const router = useRouter()
+
+  const form = useForm({
+    resolver: zodResolver(CallsSchema),
+    defaultValues:{
+      name:"",
+      phone:"",
+      email:"",
+      description:"",
+    }
+  })
+
+  const createRequestMutation = api.requests.createCall.useMutation({
+    onSuccess: () =>{
+      form.reset()
+      router.refresh()
+      toast.success("Вопрос успешно отправлен")
+      setOpen(false)
+    },
+    onError: (err) => {
+      toast.error("Ошибка",{
+        description:err.message
+      })
+    }
+  })
+  
+  const OnSubmit = (data: z.infer<typeof CallsSchema>) => {
+    return createRequestMutation.mutate({
+      ...data,
+    })
+  }
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        {children}
+      </DialogTrigger>
+      <DialogContent className="rounded-3xl">
+        <DialogHeader className="w-full">
+          <DialogTitle className="w-full text-center text-2xl">
+            Оставить заявку
+          </DialogTitle>
+        </DialogHeader>
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(OnSubmit, OnError)}
+            className="space-y-4"
+          >
+            <FormField
+              control={form.control}
+              name="name"
+              render={({field}) => (
+                <FormItem>
+                  <FormControl>
+                    <Input className="bg-white h-11 rounded-xl" placeholder="Имя" {...field}/>
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="description"
+              render={({field}) => (
+                <FormItem>
+                  <FormControl>
+                    <Textarea className="bg-white max-h-28 rounded-xl" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({field}) => (
+                <FormItem>
+                  <FormControl>
+                    <Input className="bg-white h-11 rounded-xl" placeholder="Телефон" {...field}/>
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="email"
+              render={({field}) => (
+                <FormItem>
+                  <FormControl>
+                    <Input className="bg-white h-11 rounded-xl" placeholder="Почта" {...field}/>
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <DialogFooter className="w-full">
+              <Button className="w-full rounded-xl" type="submit" disabled={createRequestMutation.isPending} >
                 Отправить
               </Button>
             </DialogFooter>

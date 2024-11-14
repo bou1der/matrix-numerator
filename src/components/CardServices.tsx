@@ -58,7 +58,7 @@ export function CardService({ children}:
               className="z-[5]"
             />
           </div>
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col gap-2 w-full relative">
             {children}
           </div>
         </div>
