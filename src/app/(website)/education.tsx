@@ -17,8 +17,8 @@ export async function EducationBlock(){
       <div className="container mx-auto space-y-16 py-20 px-2 sm:px-10">
         <h1 className="text-secondary-foreground text-center font-normal"><b className=" text-2xl sm:text-5xl italic"> Обучение </b> нумерологии ваш путь к знаниям</h1>
         <Carousel>
-          <CarouselNext variant="ghost"><ChevronRight color="white" strokeWidth="4" className="size-6" /></CarouselNext>
-          <CarouselPrevious variant="ghost"><ChevronLeft color="white" strokeWidth="4" className="size-6" /></CarouselPrevious>
+          <CarouselNext className="hover:bg-white/0" variant="ghost"><ChevronRight color="white" strokeWidth="4" className="size-6" /></CarouselNext>
+          <CarouselPrevious className="hover:bg-white/0" variant="ghost"><ChevronLeft color="white" strokeWidth="4" className="size-6" /></CarouselPrevious>
           <CarouselContent>
             {
               educations.map((education) => (
