@@ -28,7 +28,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${MainFont.variable}  ${AddFont.variable}`}>
-      <body className="bg-background">
+      <body className="bg-background overflow-x-hidden">
         <TRPCReactProvider>
           {children}
           <Toaster richColors />

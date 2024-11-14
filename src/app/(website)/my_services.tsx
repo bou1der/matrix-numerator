@@ -1,5 +1,6 @@
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { CardService } from "~/components/CardServices";
-import { Carousel, CarouselContent, CarouselItem } from "~/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "~/components/ui/carousel";
 import { api } from "~/trpc/main/server";
 
 export default async function MyServices(){
@@ -16,6 +17,9 @@ export default async function MyServices(){
             </p>
         </div>
         <Carousel  className="w-full">
+
+          <CarouselNext className="-right-7 hidden sm:inline-flex" variant="ghost"><ChevronRight color="white" strokeWidth="4" className="size-6" /></CarouselNext>
+          <CarouselPrevious className="-left-7 hidden sm:inline-flex" variant="ghost"><ChevronLeft color="white" strokeWidth="4" className="size-6" /></CarouselPrevious>
           <CarouselContent className="px-4 py-4">
           {
             services.map((el) =>(
@@ -40,4 +44,3 @@ export default async function MyServices(){
     </div>
   )
 }
-          // <div className="w-full flex flex-row items-center flex-wrap justify-center xl:justify-between gap-20">

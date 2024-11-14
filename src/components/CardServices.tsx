@@ -45,12 +45,12 @@ export function CardService({ children}:
   }){
   return(
       <motion.div
-        className=" h-[360px] w-[300px] md:h-[380px]  2xl:w-[320px] bg-white rounded-3xl relative"
+        className=" w-[300px] md:h-[380px]  2xl:w-[320px]  relative"
         initial="rest"
         whileHover="hover"
         animate="rest"
       >
-        <div className="absolute top-0 w-full h-full p-6 flex flex-col justify-between items-center z-[3]">
+        <div className=" top-0 w-full h-full p-6 flex flex-col bg-white rounded-3xl justify-between items-center z-[3]">
           <div className="w-full flex justify-start items-start">
             <Image
               src={StarCard}
@@ -58,7 +58,7 @@ export function CardService({ children}:
               className="z-[5]"
             />
           </div>
-          <div className="flex flex-col gap-2 w-full relative">
+          <div className="flex flex-col gap-2 w-full relative z-[5]">
             {children}
           </div>
         </div>
