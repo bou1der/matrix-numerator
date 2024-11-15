@@ -2,6 +2,8 @@ import "~/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Montserrat, Merriweather } from "next/font/google"
+import { YandexMetricaProvider } from "next-yandex-metrica"
+
 
 const MainFont = Montserrat({
   subsets: ['latin'],
@@ -30,10 +32,15 @@ export default function RootLayout({
     <html lang="en" className={`${MainFont.variable}  ${AddFont.variable} no-scrollbar`}>
       <meta name="yandex-verification" content="1435782365ee22c6" />
       <body className="bg-background overflow-x-hidden ">
-        <TRPCReactProvider>
-          {children}
-          <Toaster richColors />
-        </TRPCReactProvider>
+        <YandexMetricaProvider
+          tagID={98942861}
+          initParameters={{ clickmap: true, trackLinks: true, accurateTrackBounce: true }}
+        >
+          <TRPCReactProvider>
+            {children}
+            <Toaster richColors />
+          </TRPCReactProvider>
+        </YandexMetricaProvider>
       </body>
     </html>
   );
