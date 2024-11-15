@@ -31,18 +31,20 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
             <>
                 <path d="M391 301.291C391 310.574 398.525 318.099 407.808 318.099C417.091 318.099 424.617 310.574 424.617 301.291C424.617 292.008 417.091 284.483 407.808 284.483C398.525 284.483 391 292.008 391 301.291Z" fill="#DACEE8" stroke="#70548E" strokeWidth="2"/>
                 <path d="M283.19 191.377C283.19 200.66 290.715 208.185 299.998 208.185C309.281 208.185 316.807 200.66 316.807 191.377C316.807 182.094 309.281 174.569 299.998 174.569C290.715 174.569 283.19 182.094 283.19 191.377Z" fill="#DACEE8" stroke="#70548E" strokeWidth="2"/>
+
                   <g filter="url(#filter0_d_386_2657)">
                   <path d="M299.863 496.581L204.86 397.936" stroke="#70548E" strokeWidth="2.39959" strokeLinecap="round" strokeLinejoin="round"/>
                   <g filter="url(#filter1_d_386_2657)">
-                  <path d="M203.529 398.613L108.512 300.627" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M203.529 398.613L108.512 300.627" stroke="#FFCC00" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
                   <g filter="url(#filter2_d_386_2657)">
-                  <path d="M108.647 383.486L109.004 300.843" stroke="white" strokeWidth="3.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M108.647 383.486L109.004 300.843" stroke="#FFCC00" strokeWidth="3.8" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
                   <g filter="url(#filter3_d_386_2657)">
-                  <path d="M109.24 383.58L204.048 398.75" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M109.24 383.58L204.048 398.75" stroke="#FFCC00" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
                   </g>
+
                   <path d="M187.5 398.274C187.5 407.557 195.025 415.083 204.308 415.083C213.592 415.083 221.117 407.557 221.117 398.274C221.117 388.991 213.592 381.466 204.308 381.466C195.025 381.466 187.5 388.991 187.5 398.274Z" fill="#DACEE8" stroke="#70548E" strokeWidth="2"/>
               {/* X20M */}
               <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(numbers.main.x4 + numbers.main.x6) : "?"} x={203.5} y={399} />
@@ -56,7 +58,7 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
         }
 
 
-        <path d="M91.6471 382.433C91.6471 391.716 99.1725 399.242 108.455 399.242C117.739 399.242 125.264 391.716 125.264 382.433C125.264 373.15 117.739 365.625 108.455 365.625C99.1725 365.625 91.6471 373.15 91.6471 382.433Z" fill="#DACEE8" stroke="#70548E" strokeWidth="2.34375"/>
+        <path d="M91.6471 382.433C91.6471 391.716 99.1725 399.242 108.455 399.242C117.739 399.242 125.264 391.716 125.264 382.433C125.264 373.15 117.739 365.625 108.455 365.625C99.1725 365.625 91.6471 373.15 91.6471 382.433Z" fill="#DACEE8" stroke={!moneyChannel ? "#70548E" : "#FFCC00"} strokeWidth="2.34375"/>
         <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(moneyChannel ? IfAcumulate(IfAcumulate(numbers.special.YY + numbers.main.x5) + IfAcumulate(numbers.main.x4 + numbers.main.x6)) : numbers.special.YY + numbers.main.x4) : "?"} x={108.5} y={382} />
           
 
