@@ -23,7 +23,7 @@ export const RequestsSchema = z.object({
 export const ThemeNames : {
   [key in ThemeRequest]:string
 } = {
-    "MAIN":"Главная",
+    "MAIN":"Консультация",
     "ANAEL":"Анаэль",
     "LADYNI":"Ладини",
     "PIFAGOR":"Пифагор",
