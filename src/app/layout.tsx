@@ -28,6 +28,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${MainFont.variable}  ${AddFont.variable} no-scrollbar`}>
+      <meta name="yandex-verification" content="1435782365ee22c6" />
       <body className="bg-background overflow-x-hidden ">
         <TRPCReactProvider>
           {children}
