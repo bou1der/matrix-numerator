@@ -8,7 +8,7 @@ import { services } from "~/server/db/schema";
 export const servicesRouter = createTRPCRouter({
   getAll:publicProcedure
   .query( async ({ctx}) =>{
-    return await ctx.db.query.services.findMany()
+    return (await ctx.db.query.services.findMany())
   }),
   create: authenticatedProcedure
   .input(serviceScheme)

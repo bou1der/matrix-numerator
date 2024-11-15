@@ -35,13 +35,13 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
                   <g filter="url(#filter0_d_386_2657)">
                   <path d="M299.863 496.581L204.86 397.936" stroke="#70548E" strokeWidth="2.39959" strokeLinecap="round" strokeLinejoin="round"/>
                   <g filter="url(#filter1_d_386_2657)">
-                  <path d="M203.529 398.613L108.512 300.627" stroke="#FFCC00" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M203.529 398.613L108.512 300.627" stroke="yellow" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
                   <g filter="url(#filter2_d_386_2657)">
-                  <path d="M108.647 383.486L109.004 300.843" stroke="#FFCC00" strokeWidth="3.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M108.647 383.486L109.004 300.843" stroke="yellow" strokeWidth="3.8" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
                   <g filter="url(#filter3_d_386_2657)">
-                  <path d="M109.24 383.58L204.048 398.75" stroke="#FFCC00" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M109.24 383.58L204.048 398.75" stroke="yellow" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   </g>
                   </g>
 
@@ -58,7 +58,7 @@ export function BaseMatrix({numbers, className, moneyChannel}:{
         }
 
 
-        <path d="M91.6471 382.433C91.6471 391.716 99.1725 399.242 108.455 399.242C117.739 399.242 125.264 391.716 125.264 382.433C125.264 373.15 117.739 365.625 108.455 365.625C99.1725 365.625 91.6471 373.15 91.6471 382.433Z" fill="#DACEE8" stroke={!moneyChannel ? "#70548E" : "#FFCC00"} strokeWidth="2.34375"/>
+        <path d="M91.6471 382.433C91.6471 391.716 99.1725 399.242 108.455 399.242C117.739 399.242 125.264 391.716 125.264 382.433C125.264 373.15 117.739 365.625 108.455 365.625C99.1725 365.625 91.6471 373.15 91.6471 382.433Z" fill="#DACEE8" stroke={!moneyChannel ? "#70548E" : "yellow"} strokeWidth="2.34375"/>
         <SVGNumber moneyChannel={moneyChannel} size="sm" num={numbers ? IfAcumulate(moneyChannel ? IfAcumulate(IfAcumulate(numbers.special.YY + numbers.main.x5) + IfAcumulate(numbers.main.x4 + numbers.main.x6)) : numbers.special.YY + numbers.main.x4) : "?"} x={108.5} y={382} />
           
 
