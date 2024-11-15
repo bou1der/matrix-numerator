@@ -70,7 +70,13 @@ export const services = createTable("services", {
   description: text("description")
     .notNull(),
   price: integer("price")
-    .notNull()
+    .notNull(),
+  time: timestamp("time", {
+    mode:"date",
+    withTimezone:true
+  })
+  .notNull()
+  .default(sql`now()`)
 })
 
 export const education = createTable("education", {

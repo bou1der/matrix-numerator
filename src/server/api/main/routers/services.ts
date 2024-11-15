@@ -9,6 +9,7 @@ export const servicesRouter = createTRPCRouter({
   getAll:publicProcedure
   .query( async ({ctx}) =>{
     return (await ctx.db.query.services.findMany())
+    .sort((a,b) => b.time.getTime() - a.time.getTime())
   }),
   create: authenticatedProcedure
   .input(serviceScheme)
