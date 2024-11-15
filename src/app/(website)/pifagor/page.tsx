@@ -19,7 +19,7 @@ export default async function PifagorPage(){
         </p>
       </WelcomeBlock>
       <PifagorMatrix />
-      <div className="container mx-auto my-20 px-2 sm:px-6 py-2 flex flex-col gap-4">
+      <div className="my-20 px-2 sm:px-10 container mx-auto py-2 flex flex-col gap-4">
         {
           infos.map((el) => (
             <Collapsed key={el.id} text={el.description} title={el.title}/>

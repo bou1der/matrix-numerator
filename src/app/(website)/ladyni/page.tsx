@@ -18,7 +18,7 @@ export default async function LadyniCalculate(){
         </p>
       </WelcomeBlock>
       <LadyniMatrix />
-      <div className="w-full px-2 sm:px-6 py-2 flex flex-col gap-4">
+      <div className="w-full px-2 sm:px-10 container mx-auto  py-2 flex flex-col gap-4">
         {
           infos.map((el) => (
 
