@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/*
+Allow: /
+Allow: /ladyni
+Allow: /pifagor
+Allow: /anael
+Sitemap: https://soul-keys.ru/sitemap.xml
+Host: https://soul-keys.ru/
