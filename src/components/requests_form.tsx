@@ -168,7 +168,7 @@ export function CallsForm({ children}:{
       <DialogContent className="rounded-3xl">
         <DialogHeader className="w-full">
           <DialogTitle className="w-full text-center text-2xl">
-            Оставить заявку
+            Оставить обратную связь
           </DialogTitle>
         </DialogHeader>
         <Form {...form}>
