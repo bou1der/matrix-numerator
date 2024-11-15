@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Montserrat, Merriweather } from "next/font/google"
-import { YandexMetricaProvider } from "next-yandex-metrica"
+import { YandexMetricaProvider } from "@artginzburg/next-ym"
 
 
 const MainFont = Montserrat({
