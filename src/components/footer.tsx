@@ -7,6 +7,7 @@ import Logo from "./logo";
 import { ArrowRight, Diamond, Grid2x2, Triangle } from "lucide-react";
 import { Button } from "./ui/button";
 import { CallsForm } from "./requests_form";
+import { env } from "~/env";
 
 
 
@@ -41,8 +42,8 @@ export function Footer(){
         </div>
         <div className="border-t-2 border-white w-full h-0.5" />
         <div className="flex items-center justify-center gap-6">
-          <Link href="" ><Image src={WhatsApp} alt="" /></Link>
-          <Link href="" ><Image src={Telegram} alt="" /></Link>
+          <Link href={env.WHATSAPP_URL || "" } ><Image src={WhatsApp} alt="" /></Link>
+          <Link href={env.TELEGRAM_URL || ""} ><Image src={Telegram} alt="" /></Link>
         </div>
         <p className="text-center text-[16px] text-secondary-foreground opacity-60">2024 Все права защищены</p>
       </div>
