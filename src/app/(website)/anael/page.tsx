@@ -19,7 +19,7 @@ export default async function AnaelPage(){
           </p>
       </WelcomeBlock>
       <AnaelMatrix />
-      <div className="w-full px-2 sm:px-10 container mx-auto py-2 flex flex-col gap-4">
+      <div className="w-full px-2 sm:px-10 container my-20 mx-auto py-2 flex flex-col gap-4">
         {
           infos.map((el) => (
             <Collapsed key={el.id} text={el.description} title={el.title} />
