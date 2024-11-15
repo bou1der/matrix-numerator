@@ -56,7 +56,7 @@ export default function SignInPage() {
         throw new Error(res.error);
       }
 
-      router.push("/");
+      router.push("/admin");
     } catch (error) {
       toast.error((error as Error).message);
     }

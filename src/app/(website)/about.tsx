@@ -7,7 +7,7 @@ export default function AboutMeBlock(){
   return(
     <div className="">
       <div className="flex flex-col-reverse 2xl:flex-row justify-between relative max-w-[1920px] mx-auto">
-        <div className="max-w-[740px] flex flex-col gap-8 justify-center py-20 px-10 mx-auto 2xl:m-0">
+        <div className="max-w-[740px] flex flex-col gap-8 justify-center pr-0 lg:pl-20 py-20 mx-auto 2xl:m-0">
           <div className="w-full flex justify-start "> 
             <Image
               src={Star as StaticImageData}
@@ -47,7 +47,7 @@ export default function AboutMeBlock(){
           </div>
         </div>
 
-        <div className=" shrink-0 grow w-auto">
+        <div className=" shrink-0 min-w-[50%] w-auto">
           <div className="relative h-full">
             <Image
               src={PersonImg as StaticImageData}
