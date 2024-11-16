@@ -28,11 +28,11 @@ export default async function MyServices(){
                   <b className="text-xl font-medium">
                     {el.title}
                   </b>
-                  <p className="break-words text-[16px]">
+                  <p className="break-words text-[16px] font-normal">
                   {el.description}
                   </p>
-                  <p className="text-[16px]">
-                    Стоимость курса:<b> {el.price} ₽</b>
+                  <p className="text-[16px] font-normal">
+                    Стоимость курса:<b className="font-medium"> {el.price} ₽</b>
                   </p>
                 </CardService>
               </CarouselItem>
