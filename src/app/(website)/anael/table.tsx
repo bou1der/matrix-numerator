@@ -4,7 +4,9 @@ import { cn } from "~/lib/utils"
 
 const cells = [
   {
-    title:"А. Аркан дня",
+    title: (numbers: AnaelNumbers | undefined) =>{
+      return `А. Аркан дня( ${numbers ? numbers.DD : "?"} )`
+    },
     ach: (numbers: AnaelNumbers | undefined) =>{
       return `Д. ЧД1( ${numbers ? IfAcumMinus(numbers.DD + numbers.MM) : "?"} )`
     },
@@ -13,7 +15,9 @@ const cells = [
     }
   },
   {
-    title:"Б. Аркан месяца",
+    title: (numbers: AnaelNumbers | undefined) =>{
+      return `Б. Аркан месяца( ${numbers ? numbers.MM : "?"} )`
+    },
     ach: (numbers: AnaelNumbers | undefined) =>{
       return `E. ЧД2( ${numbers ? IfAcumMinus(numbers.DD + numbers.YY) : "?"} )`
     },
@@ -22,7 +26,9 @@ const cells = [
     }
   },
   {
-    title:"В. Аркан года",
+    title: (numbers: AnaelNumbers | undefined) =>{
+      return `В. Аркан года( ${numbers ? numbers.YY : "?"} )`
+    },
     ach: (numbers: AnaelNumbers | undefined) =>{
       return `Ж. ЧД3( ${numbers ? IfAcumMinus(IfAcumMinus(numbers.DD + numbers.MM) + IfAcumMinus(numbers.DD + numbers.YY)) : "?"} )`
     },
@@ -31,7 +37,9 @@ const cells = [
     }
   },
   {
-    title:"Г. Самореализация",
+    title: (numbers: AnaelNumbers | undefined) =>{
+      return `Г. Самореализация( ${numbers ? numbers.x : "?"} )`
+    },
     ach: (numbers: AnaelNumbers | undefined) =>{
       return `З. ЧД4( ${numbers ? IfAcumMinus(numbers.YY + numbers.MM) : "?"} )`
     },
@@ -40,7 +48,9 @@ const cells = [
     }
   },
   {
-    title:"",
+    title: (numbers: AnaelNumbers | undefined) =>{
+      return ``
+    },
     ach: () =>{
       return ``
     },
@@ -68,9 +78,9 @@ export function PeopleNumberTable({numbers, className}:
       <TableBody className="" >
         {
           cells.map((el) => (
-            <TableRow key={el.title} className="w-full">
+            <TableRow key={el.title(numbers)} className="w-full">
               <TableCell className="text-left text-[6px] sm:text-[14px]">
-                {el.title}
+                {el.title(numbers)}
               </TableCell>
               <TableCell className=" border-x text-left text-[6px] sm:text-[14px]" >
                 {el.ach(numbers)}
