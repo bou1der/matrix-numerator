@@ -13,7 +13,7 @@ const cells = [
     }
   },
   {
-    title:"Б. Аркан дня",
+    title:"Б. Аркан месяца",
     ach: (numbers: AnaelNumbers | undefined) =>{
       return `E. ЧД2( ${numbers ? IfAcumMinus(numbers.DD + numbers.YY) : "?"} )`
     },
@@ -22,7 +22,7 @@ const cells = [
     }
   },
   {
-    title:"В. Аркан дня",
+    title:"В. Аркан года",
     ach: (numbers: AnaelNumbers | undefined) =>{
       return `Ж. ЧД3( ${numbers ? IfAcumMinus(IfAcumMinus(numbers.DD + numbers.MM) + IfAcumMinus(numbers.DD + numbers.YY)) : "?"} )`
     },
@@ -31,7 +31,7 @@ const cells = [
     }
   },
   {
-    title:"Г. Аркан дня",
+    title:"Г. Самореализация",
     ach: (numbers: AnaelNumbers | undefined) =>{
       return `З. ЧД4( ${numbers ? IfAcumMinus(numbers.YY + numbers.MM) : "?"} )`
     },
