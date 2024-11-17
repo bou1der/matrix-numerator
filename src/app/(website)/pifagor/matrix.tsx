@@ -1,8 +1,6 @@
 'use client'
 import Image, { type StaticImageData } from "next/image";
 import PifagorSvg  from "public/matrixs/pifagor.svg"
-import RadialStar from "public/radial-star.svg"
-import ComboStar  from "public/combostar.svg"
 
 import MatrixForm from "~/components/matrix_form";
 
@@ -20,8 +18,7 @@ export function PifagorMatrix(){
     const arr = `${data.date}${data.month}${data.year}`.split("").map(Number)
     const first = Acumulate(arr, {checkIgnore:true})
     const second = Acumulate(first.toString().split("").map(Number), {checkIgnore:true})
-    const third = first - Number(first.toString().split("")[0])
-
+    const third = first - Number(data.date.toString().split("")[0]) * 2
     const four = Acumulate(third.toString().split("").map(Number), {checkIgnore:true})
 
     const fate = Acumulate(first.toString().split("").map(Number))
